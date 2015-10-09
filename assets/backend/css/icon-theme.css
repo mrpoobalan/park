@@ -1,0 +1,67 @@
+body{ background: #f2f2f2; }
+.headertop { background: #009cab; padding: 15px 0; margin-bottom: 15px; }
+.headertxt { float: left; }
+.headertxt h1 { font-size: 25px; margin-top: 0; margin-bottom: 0; color: #fff; }
+.usrtxt p { font-size: 14px; color: #fff; text-align: right; margin-bottom: 0; padding-top: 5px; }
+.icontab { margin-bottom: 20px; float: left; }
+.icontab h4 { font-size: 13px; color: #fff; background: #009CAB;  display: table; margin: 10px auto; text-align: center; text-transform: uppercase; padding: 10px 15px; }
+.tabbox { border: 1px solid #ccc; float: left; color: #009cab; margin: 2% 1% 0 1%; width: 48%;  }
+.tabbox .fa { font-size: 38px; }
+.tabbox p { text-align: center; font-size: 14px; padding: 10px; }
+.tabbox a { display: block; color: #009cab; width: 100%; padding: 15px; height: 100%;  }
+.tabbox a:hover, .tabbox a:focus, .tabbox a.active { color: #fff; background: #009cab; border: 1px solid #009cab; }
+.loadmre { float: left; margin: 20px 0;  text-align: center; width: 100%; }
+.loadmre a { background: #20828C; padding: 10px 15px; text-align: center; display: inline-block; color: #fff; text-transform: uppercase; }
+.loadmre a:hover, .loadmre a:focus  { background: #2AA4B1; }
+.footerlast { border-top: 1px solid #009cab; width: 100%; padding: 15px 0;  }
+.tabcontent { border: 1px solid #ccc; padding: 15px 15px 0 15px; float: left; margin: 20px 0; background: #f9f9f9; }
+.tabcontent h4 { font-size: 15px; color: #484848; margin: 0 0 20px 0;  text-transform: uppercase; }
+
+
+@media only screen and (max-width: 1024px) {
+  .tabbox p  { font-size: 13px; padding: 10px 15px;  }
+}
+
+@media only screen and (max-width: 768px) {
+  .headertxt { float: none; margin-bottom: 15px; }
+  .headertxt h1, .headertop p { text-align: center; }
+  .tabbox p  { font-size: 15px; margin-bottom: 0; padding: 10px 15px; }   
+  .tabbox .fa { font-size: 45px; }
+  .tabcontent { margin-bottom: 60px; }
+}
+
+@media only screen and (max-width: 800px) {
+  .headertxt { float: none; margin-bottom: 15px; }
+  .headertxt h1, .headertop p { text-align: center; }
+}
+
+@media only screen and (max-width: 980px) {
+  .headertxt { float: none; margin-bottom: 15px; }
+  .headertxt h1, .headertop p { text-align: center; }
+}
+
+@media only screen and (max-width: 480px) {
+  .tabbox, .tabbox a:hover, .tabbox a:focus, .tabbox a.active { background: none; border: none; }
+  .tabbox .fa:focus, .tabbox .fa.selected { background: #009CAB; color: #fff; cursor: pointer; }
+  .tabbox .fa { border: 1px solid #ccc; padding: 18px; font-size: 38px; color: #009CAB; }
+  .tabbox p { color: #009CAB; font-size: 13px; padding: 5px 0; text-align: center;  }
+  .loadmre { margin-top: 0; }
+  .tabcontent { margin-bottom: 60px; }
+}
+
+@media only screen and (max-width: 320px) {
+  .tabbox p  { font-size: 13px; color: #009CAB; padding: 5px 0; text-align: center;  }
+  .headertxt h1 { font-size: 20px; }
+  .tabbox, .tabbox a:hover, .tabbox a:focus, .tabbox a.active { background: none; border: none; }
+  .tabbox .fa:focus, .tabbox .fa.selected { background: #009CAB; color: #fff; cursor: pointer; }
+  .tabbox .fa { border: 1px solid #ccc; padding: 18px; font-size: 38px; color: #009CAB; }
+  .loadmre { margin-top: 0; }
+  .footerlast { font-size: 13px; }
+  .tabcontent { margin-bottom: 60px; }
+}
+
+
+
+@media only screen and (max-width: 640px) and (orientation: landscape) {
+  .tabbox p { padding: 5px; text-align: center; }
+}

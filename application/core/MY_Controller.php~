@@ -1,0 +1,18 @@
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class MY_Controller extends CI_Controller {
+
+    public function buildTemplate($view, $data, $template = array()) {
+	if(isset($template['header'])){
+        	$this->template->set_partial('header', 'common/header');	
+	} else{
+		$this->template->set_partial('header', 'common/header');	
+	}	
+        $this->template->set_partial('sidebar', 'common/left_content');
+        $this->template->set_partial('footer', 'common/footer');
+        $this->template->build($view, $data);
+    }
+
+}
