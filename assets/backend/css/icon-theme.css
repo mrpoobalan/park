@@ -16,52 +16,53 @@ body{ background: #f2f2f2; }
 .footerlast { border-top: 1px solid #009cab; width: 100%; padding: 15px 0;  }
 .tabcontent { border: 1px solid #ccc; padding: 15px 15px 0 15px; float: left; margin: 20px 0; background: #f9f9f9; }
 .tabcontent h4 { font-size: 15px; color: #484848; margin: 0 0 20px 0;  text-transform: uppercase; }
+.btn-list {  background: #20828c none repeat scroll 0 0;border-radius: 5px;color: #fff;display: inline-block;padding: 5px 10px; text-transform: uppercase; }
 
 
 @media only screen and (max-width: 1024px) {
-  .tabbox p  { font-size: 13px; padding: 10px 15px;  }
+    .tabbox p  { font-size: 13px; padding: 10px 15px;  }
 }
 
 @media only screen and (max-width: 768px) {
-  .headertxt { float: none; margin-bottom: 15px; }
-  .headertxt h1, .headertop p { text-align: center; }
-  .tabbox p  { font-size: 15px; margin-bottom: 0; padding: 10px 15px; }   
-  .tabbox .fa { font-size: 45px; }
-  .tabcontent { margin-bottom: 60px; }
+    .headertxt { float: none; margin-bottom: 15px; }
+    .headertxt h1, .headertop p { text-align: center; }
+    .tabbox p  { font-size: 15px; margin-bottom: 0; padding: 10px 15px; }
+    .tabbox .fa { font-size: 45px; }
+    .tabcontent { margin-bottom: 60px; }
 }
 
 @media only screen and (max-width: 800px) {
-  .headertxt { float: none; margin-bottom: 15px; }
-  .headertxt h1, .headertop p { text-align: center; }
+    .headertxt { float: none; margin-bottom: 15px; }
+    .headertxt h1, .headertop p { text-align: center; }
 }
 
 @media only screen and (max-width: 980px) {
-  .headertxt { float: none; margin-bottom: 15px; }
-  .headertxt h1, .headertop p { text-align: center; }
+    .headertxt { float: none; margin-bottom: 15px; }
+    .headertxt h1, .headertop p { text-align: center; }
 }
 
 @media only screen and (max-width: 480px) {
-  .tabbox, .tabbox a:hover, .tabbox a:focus, .tabbox a.active { background: none; border: none; }
-  .tabbox .fa:focus, .tabbox .fa.selected { background: #009CAB; color: #fff; cursor: pointer; }
-  .tabbox .fa { border: 1px solid #ccc; padding: 18px; font-size: 38px; color: #009CAB; }
-  .tabbox p { color: #009CAB; font-size: 13px; padding: 5px 0; text-align: center;  }
-  .loadmre { margin-top: 0; }
-  .tabcontent { margin-bottom: 60px; }
+    .tabbox, .tabbox a:hover, .tabbox a:focus, .tabbox a.active { background: none; border: none; }
+    .tabbox .fa:focus, .tabbox .fa.selected { background: #009CAB; color: #fff; cursor: pointer; }
+    .tabbox .fa { border: 1px solid #ccc; padding: 18px; font-size: 38px; color: #009CAB; }
+    .tabbox p { color: #009CAB; font-size: 13px; padding: 5px 0; text-align: center;  }
+    .loadmre { margin-top: 0; }
+    .tabcontent { margin-bottom: 60px; }
 }
 
 @media only screen and (max-width: 320px) {
-  .tabbox p  { font-size: 13px; color: #009CAB; padding: 5px 0; text-align: center;  }
-  .headertxt h1 { font-size: 20px; }
-  .tabbox, .tabbox a:hover, .tabbox a:focus, .tabbox a.active { background: none; border: none; }
-  .tabbox .fa:focus, .tabbox .fa.selected { background: #009CAB; color: #fff; cursor: pointer; }
-  .tabbox .fa { border: 1px solid #ccc; padding: 18px; font-size: 38px; color: #009CAB; }
-  .loadmre { margin-top: 0; }
-  .footerlast { font-size: 13px; }
-  .tabcontent { margin-bottom: 60px; }
+    .tabbox p  { font-size: 13px; color: #009CAB; padding: 5px 0; text-align: center;  }
+    .headertxt h1 { font-size: 20px; }
+    .tabbox, .tabbox a:hover, .tabbox a:focus, .tabbox a.active { background: none; border: none; }
+    .tabbox .fa:focus, .tabbox .fa.selected { background: #009CAB; color: #fff; cursor: pointer; }
+    .tabbox .fa { border: 1px solid #ccc; padding: 18px; font-size: 38px; color: #009CAB; }
+    .loadmre { margin-top: 0; }
+    .footerlast { font-size: 13px; }
+    .tabcontent { margin-bottom: 60px; }
 }
 
 
 
 @media only screen and (max-width: 640px) and (orientation: landscape) {
-  .tabbox p { padding: 5px; text-align: center; }
+    .tabbox p { padding: 5px; text-align: center; }
 }

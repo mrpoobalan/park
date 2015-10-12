@@ -56,11 +56,9 @@ class Projectmaster extends MY_Controller {
         } else {
 
             $result['value'] = $this->projectprocess->get_project_process();
-            $this->viewTemplates('project_process_view', $result, array('left_content' => 'common/main_left_content'));
+            //$this->load->view('project_process_view', $result);
+            $this->viewTemplates('project_process_view', $result, array('left_content' => 'common/main_left_content', 'content' => 'No'));
         }
-
-        // $result['value'] = $this->projectprocess->get_project_process();
-        // $this->viewTemplates('project_process_view', $result, array('left_content' => 'common/main_left_content'));
     }
 
     public function startval($startdate) {
@@ -74,11 +72,60 @@ class Projectmaster extends MY_Controller {
         }
     }
 
+    public function airSystem() {
+        $result['project'] = $this->projectprocess->get_project_process();
+        $result['process'] = $this->projectprocess->get_property();
+
+        $i = count($_POST);
+
+        $this->form_validation->set_rules('check' . $i . '[checkbox]', 'Checkbox', 'required');
+        if ($_POST) {
+            if ($this->form_validation->run() == FALSE) {
+                // echo "error";
+                // exit;
+                $this->viewTemplates('airsystem_process_view', $result);
+                return false;
+            }
+        }
+
+
+
+
+        if ($_POST) {
+            $count = count($_POST);
+            for ($i = 1; $i <= $count; $i++) {
+                $val = "check$i";
+                $property_name = ($_POST["check$i"]['propertyname']);
+                $property_check = ($_POST["check$i"]['checkbox']);
+                $property_comments = ($_POST["check$i"]['comments']);
+                $data = array(
+                    'pid' => 1,
+                    'propertyid' => $i,
+                    'propertyname' => $property_name,
+                    'propertycheck' => $property_check,
+                    'comments' => $property_comments,
+                );
+                $last_insert_id = $this->projectprocess->insert_process($data);
+            }//exit;
+            $project_comments = $this->input->post('projproc_comments');
+            $data_comments = array(
+                'projectid' => 1,
+                'comments' => $project_comments
+            );
+
+            $last_insert_id = $this->projectprocess->insert_process_comment($data_comments);
+        }
+        $result['airsystem'] = $this->projectprocess->get_airsystem();
+        $this->viewTemplates('airsystem_process_view', $result);
+    }
+
     /* public function insert_project_master() {
       $this->form_validation->set_rules('engineername', 'Engineer name', 'required');
       $this->form_validation->set_rules('project', 'Project', 'required');
       $this->form_validation->set_rules('system', 'System', 'required');
-      $this->form_validation->set_rules('startdate', 'Date', 'required|regex_match[(0[1-9]|1[0-9]|2[0-9]|3(0|1))-(0[1-9]|1[0-2])-\d{4}]');
+      $this->form_validation->set_rules('startdate', 'Date', 'required|regex_match[(0[1-9]|1[0-9]|2[0-9]|3(0|1))-(0[1-9]|1[0-2])-\d{4        }
+
+      ]');
       $this->form_validation->set_rules('refno', 'Ref No', 'required');
       $this->form_validation->set_rules('totpage', 'Ref No', 'required');
       $this->form_validation->set_rules('client', 'Ref No', 'required');

@@ -29,12 +29,14 @@ class MY_Controller extends CI_Controller {
         } else {
             $this->load->view('common/header');
         }
-        if (isset($template['left_content'])) {
+        if (isset($template['left_content']) && empty($template['content'])) {
             $this->load->view($template['left_content']);
-        } else {
+        } elseif (empty($template['content'])) {
             $this->load->view('common/left_content');
         }
+
         $this->load->view($view, $data);
+
         if (isset($template['footer'])) {
             $this->load->view($template['footer']);
         } else {

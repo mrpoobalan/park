@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="icontab">
                 <h4 class="animated fadeInDownBig">Lorem ipsum text</h4>
                 <div class="tabbox animated zoomIn element">
-                    <a href="#" class="active">
+                    <a href="<?php echo base_url(); ?>projectmaster/airSystem" class="active">
                         <p><i class="fa fa-soundcloud selected"></i></p>
                         <p>Air System Pre-commissioning Checks</p>
                     </a>
@@ -25,9 +25,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </a>
                 </div>
                 <div class="tabbox animated zoomIn element">
-                    <a href="#">
+                    <a href="<?php echo base_url(); ?>projectmaster">
                         <p><i class="fa fa-chain-broken"></i></p>
-                        <p>Duct Leakage</p>
+                        <p>Project Process</p>
                     </a>
                 </div>
                 <div class="loadmre">

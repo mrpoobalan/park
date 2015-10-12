@@ -12,9 +12,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </div>
 
-<script src="<?php echo base_url(); ?>assets/backend/js/jQuery-2.1.4.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/backend/js/bootstrap.min.js"></script>
+
 <script src="<?php echo base_url(); ?>assets/backend/js/smooth-scroll.js"></script>
+<script src="<?php echo base_url(); ?>assets/backend/datepicker/bootstrap-datepicker.js"></script>
+
+
+<script>
+    $(function() {
+        //Date Picker
+        $('#startdate').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            format: 'yyyy-mm-dd',
+        });
+
+    });
+</script>
 <script>
     $(document).ready(function() {
         var heights = $(".element").map(function() {
@@ -25,5 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $(".element").height(maxHeight);
     });
 </script>
+
+
 </body>
 </html>
