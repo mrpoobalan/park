@@ -120,28 +120,11 @@ class Projectmaster extends MY_Controller {
         $result['backflush'] = $this->projectprocess->get_back_flush();
         $result['project'] = $this->projectprocess->get_project_process();
         $this->viewTemplates('backflush_view', $result);
-        return false;
-        $this->form_validation->set_rules('reference', 'Reference', 'required');
-        $this->form_validation->set_rules('temperature', 'Temperature', 'required');
-        if ($this->form_validation->run() == FALSE) {
-
-            $result['project'] = $this->projectprocess->get_project_process();
-            $this->viewTemplates('backflush_view', $result);
-        } else {
-            $data = array(
-                'reference' => $this->input->post('reference'),
-                'temperature' => $this->input->post('temperature'),
-                'comments' => $this->input->post('comments'),
-            );
-            $last_insert_id = $this->projectprocess->insert_backflush($data);
-            $result = array();
-            $this->viewTemplates('backflush_create_view', $result);
-        }
     }
 
     public function createBlackflush() {
         $this->form_validation->set_rules('reference', 'Reference', 'required');
-        $this->form_validation->set_rules('temperature', 'Temperature', 'required');
+        $this->form_validation->set_rules('temperature', 'Temperature', 'required|is_natural|numeric');
         if ($this->form_validation->run() == FALSE) {
             $result = array();
             $this->viewTemplates('backflush_create_view', $result);
@@ -155,6 +138,48 @@ class Projectmaster extends MY_Controller {
             $result['project'] = $this->projectprocess->get_project_process();
             $result['backflush'] = $this->projectprocess->get_back_flush();
             $this->viewTemplates('backflush_view', $result);
+        }
+    }
+
+    public function directvol() {
+
+        $result['direct_volume'] = $this->projectprocess->get_direct_volume();
+        $result['project'] = $this->projectprocess->get_project_process();
+        $this->viewTemplates('direct_volume_view', $result);
+    }
+
+    public function create_direct_volume() {
+        $this->form_validation->set_rules('reference', 'Reference', 'required');
+        $this->form_validation->set_rules('grille', 'Grille Size', 'required|is_natural|numeric');
+        $this->form_validation->set_rules('design', 'Design Volume', 'required|is_natural|numeric');
+        $this->form_validation->set_rules('finalvol', 'Final Volume', 'required|is_natural|numeric');
+        $this->form_validation->set_rules('correctionfact', 'Correction Factor', 'required|is_natural|numeric');
+        $this->form_validation->set_rules('settings', 'Setting', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $result = array();
+            $this->viewTemplates('directvol_create_view', $result);
+        } else {
+            $design = $this->input->post('design');
+            $finalvolume = $this->input->post('finalvol');
+            $correctionfactor = $this->input->post('correctionfact');
+            $actualvolume = $finalvolume * $correctionfactor;
+            $percentage = ($actualvolume / $design);
+            $data = array(
+                'reference' => $this->input->post('reference'),
+                'grillesize' => $this->input->post('grille'),
+                'designvolume' => $design,
+                'finalvolume' => $finalvolume,
+                'correctionfactor' => $correctionfactor,
+                'actualvolume' => $actualvolume,
+                'percentage' => $percentage,
+                'settings' => $this->input->post('settings'),
+                'comments' => $this->input->post('comments'),
+            );
+            $last_insert_id = $this->projectprocess->insert_directvolume($data);
+
+            $result['project'] = $this->projectprocess->get_project_process();
+            $result['direct_volume'] = $this->projectprocess->get_direct_volume();
+            $this->viewTemplates('direct_volume_view', $result);
         }
     }
 

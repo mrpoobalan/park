@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </a>
                 </div>
                 <div class="tabbox animated zoomIn element">
-                    <a href="#" id="directvolume">
+                    <a href="<?php echo base_url(); ?>projectmaster/directvol" id="directvol">
                         <p><i class="fa fa-volume-up"></i></p>
                         <p>Direct Volume Grille Record</p>
                     </a>
@@ -43,10 +43,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if (activeclass == 'airSystem') {
                     jQuery("#airSystem").addClass('active');
                     jQuery("#backflush").removeClass('active');
+                    jQuery("#directvol").removeClass('active');
                 }
-                else if (activeclass == 'backflush') {
-                    jQuery("#airSystem").removeClass('active');
+                else if (activeclass == 'backflush' || activeclass == 'createBlackflush') {
                     jQuery("#backflush").addClass('active');
+                    jQuery("#airSystem").removeClass('active');
+                    jQuery("#directvol").removeClass('active');
+                } else if (activeclass == 'directvol' || activeclass == 'create_direct_volume') {
+                    jQuery("#directvol").addClass('active');
+                    jQuery("#airSystem").removeClass('active');
+                    jQuery("#backflush").removeClass('active');
+                } else {
+                    jQuery("#airSystem").addClass('active');
+                    jQuery("#backflush").removeClass('active');
+                    jQuery("#directvol").removeClass('active');
                 }
 
             });

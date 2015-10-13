@@ -32,9 +32,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //                    'bSortable': false,
 //                    'aTargets': [0]
 //                }]
-
+            "scrollX": true
         });
-
+        $("#example2").DataTable({
+            "scrollX": true
+        });
     });
 </script>
 <script>

@@ -66,6 +66,18 @@ class Projectprocess extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function insert_directvolume($data) {
+        $this->db->insert('directvolume', $data);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+    }
+
+    public function get_direct_volume() {
+        $sql = "SELECT * FROM directvolume";
+        $query = $this->db->query($sql);
+        return $result = $query->result_array();
+    }
+
 }
 
 ?>
