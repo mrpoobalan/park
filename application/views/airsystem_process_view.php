@@ -91,16 +91,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     }
                                 }
                                 ?>
-                                <label><input  type="radio" <?php echo $checkedyes; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="Y" >Yes</label>
-                                <label><input type="radio" <?php echo $checkedno; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="N">No</label>
-                                <label><input type="radio" <?php echo $checkedna; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="N/A">N/A</label>
+                                <label><input  type="radio" <?php echo $checkedyes; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="Y" <?php echo set_radio('check' . $processstep['id'] . '[checkbox]', 'Y'); ?>>Yes</label>
+                                <label><input type="radio" <?php echo $checkedno; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="N" <?php echo set_radio('check' . $processstep['id'] . '[checkbox]', 'N'); ?>>No</label>
+                                <label><input type="radio" <?php echo $checkedna; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="N/A" <?php echo set_radio('check' . $processstep['id'] . '[checkbox]', 'N/A'); ?>>N/A</label>
                             </td><span style='color: red'><?php echo form_error('check' . $processstep['id'] . '[checkbox]'); ?></span>
-    <!--                            <td><input type="textarea" class="form-control" name="check<?php echo $processstep['id']; ?>[comments]" id="comments<?php //echo $processstep['id'];                                                 ?>" value="<?php
+    <!--                            <td><input type="textarea" class="form-control" name="check<?php echo $processstep['id']; ?>[comments]" id="comments<?php //echo $processstep['id'];                                                                      ?>" value="<?php
                             if (!empty($airsystem)) {
                                 $airsystem[$processstep['id'] - 1]['comments'];
                             }
                             ?>" ></td>-->
-                            <td><textarea name="check<?php echo $processstep['id']; ?>[comments]" class="form-control custom-control" rows="1" style="resize:none"><?php
+                            <td><textarea name="check<?php echo $processstep['id']; ?>[comments]" class="form-control custom-control" rows="1" style="resize:none" <?php echo set_value($processstep['id'] . '[comments]'); ?>><?php
                                     if (!empty($airsystem)) {
                                         echo $airsystem[$processstep['id'] - 1]['comments'];
                                     }
@@ -117,22 +117,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tbody>
                     </table>
 
-                    <!--                    <div class="animated zoomIn">
-                                            <div class="box-body no-padding">
-                                                <table class="table table-condensed">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Comments</td>
-                                                            <td ><textarea id="projproc_comments" name="projproc_comments" class="form-control custom-control" rows="5" col="15" style="resize:none"><?php
-                    if (!empty($airsystem)) {
-                        //echo $airsystem[$processstep['id'] - 1]['comments'];
-                    }
-                    ?></textarea></td>
+                    <div class="animated zoomIn">
+                        <div class="box-body no-padding">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td>Comments</td>
+                                        <td ><textarea id="projproc_comments" name="projproc_comments" class="form-control custom-control" rows="5" col="15" style="resize:none" <?php echo set_value('projproc_comments'); ?>><?php
+                                                if (!empty($projectcomments)) {
+                                                    echo $projectcomments->comments;
+                                                }
+                                                ?></textarea></td>
 
-                                                        </tr>
-                                                    </tbody></table>
-                                            </div>
-                                        </div>-->
+                                    </tr>
+                                </tbody></table>
+                        </div>
+                    </div>
 
                     <div class="box-footer">
                         <?php if (empty($airsystem)) { ?>

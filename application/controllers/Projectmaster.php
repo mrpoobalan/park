@@ -75,26 +75,22 @@ class Projectmaster extends MY_Controller {
     public function airSystem() {
         $result['project'] = $this->projectprocess->get_project_process();
         $result['process'] = $this->projectprocess->get_property();
-
-        $i = count($_POST);
+        $result['projectcomments'] = $this->projectprocess->get_process_comments();
+        $i = count($_POST) - 1;
 
         $this->form_validation->set_rules('check' . $i . '[checkbox]', 'Checkbox', 'required');
         if ($_POST) {
             if ($this->form_validation->run() == FALSE) {
-                // echo "error";
-                // exit;
+
                 $this->viewTemplates('airsystem_process_view', $result);
                 return false;
             }
         }
 
-
-
-
         if ($_POST) {
-            $count = count($_POST);
+            $count = count($_POST) - 1;
             for ($i = 1; $i <= $count; $i++) {
-                $val = "check$i";
+
                 $property_name = ($_POST["check$i"]['propertyname']);
                 $property_check = ($_POST["check$i"]['checkbox']);
                 $property_comments = ($_POST["check$i"]['comments']);
@@ -108,6 +104,7 @@ class Projectmaster extends MY_Controller {
                 $last_insert_id = $this->projectprocess->insert_process($data);
             }//exit;
             $project_comments = $this->input->post('projproc_comments');
+
             $data_comments = array(
                 'projectid' => 1,
                 'comments' => $project_comments

@@ -47,6 +47,12 @@ class Projectprocess extends CI_Model {
         return $insert_id;
     }
 
+    public function get_process_comments() {
+        $sql = "SELECT * FROM processcomments where id=1";
+        $query = $this->db->query($sql);
+        return $result = $query->row();
+    }
+
 }
 
 ?>
