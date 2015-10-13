@@ -76,19 +76,17 @@ class Projectmaster extends MY_Controller {
         $result['project'] = $this->projectprocess->get_project_process();
         $result['process'] = $this->projectprocess->get_property();
         $result['projectcomments'] = $this->projectprocess->get_process_comments();
-        $i = count($_POST) - 1;
 
-        $this->form_validation->set_rules('check' . $i . '[checkbox]', 'Checkbox', 'required');
+        //$i = count($_POST) - 1;
+        $count = count($_POST) - 1;
+        $this->form_validation->set_rules('check' . $count . '[checkbox]', 'Checkbox', 'required');
+
         if ($_POST) {
             if ($this->form_validation->run() == FALSE) {
-
                 $this->viewTemplates('airsystem_process_view', $result);
                 return false;
             }
-        }
 
-        if ($_POST) {
-            $count = count($_POST) - 1;
             for ($i = 1; $i <= $count; $i++) {
 
                 $property_name = ($_POST["check$i"]['propertyname']);
