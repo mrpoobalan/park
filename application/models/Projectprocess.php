@@ -53,6 +53,19 @@ class Projectprocess extends CI_Model {
         return $result = $query->row_array();
     }
 
+    public function insert_backflush($data) {
+        $this->db->insert('backflush', $data);
+        $insert_id = $this->db->insert_id();
+
+        return $insert_id;
+    }
+
+    public function get_back_flush() {
+        $sql = "SELECT * FROM backflush";
+        $query = $this->db->query($sql);
+        return $result = $query->result_array();
+    }
+
 }
 
 ?>

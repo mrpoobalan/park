@@ -15,7 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <script src="<?php echo base_url(); ?>assets/backend/js/smooth-scroll.js"></script>
 <script src="<?php echo base_url(); ?>assets/backend/datepicker/bootstrap-datepicker.js"></script>
-
+<!-- DataTables -->
+<script src="<?php echo base_url(); ?>assets/backend/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/backend/datatables/dataTables.bootstrap.min.js"></script>
 
 <script>
     $(function() {
@@ -25,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             todayHighlight: true,
             format: 'yyyy-mm-dd',
         });
-
+        $("#example1").DataTable();
     });
 </script>
 <script>

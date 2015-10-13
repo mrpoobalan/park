@@ -115,4 +115,47 @@ class Projectmaster extends MY_Controller {
         $this->viewTemplates('airsystem_process_view', $result);
     }
 
+    public function backflush() {
+
+        $result['backflush'] = $this->projectprocess->get_back_flush();
+        $result['project'] = $this->projectprocess->get_project_process();
+        $this->viewTemplates('backflush_view', $result);
+        return false;
+        $this->form_validation->set_rules('reference', 'Reference', 'required');
+        $this->form_validation->set_rules('temperature', 'Temperature', 'required');
+        if ($this->form_validation->run() == FALSE) {
+
+            $result['project'] = $this->projectprocess->get_project_process();
+            $this->viewTemplates('backflush_view', $result);
+        } else {
+            $data = array(
+                'reference' => $this->input->post('reference'),
+                'temperature' => $this->input->post('temperature'),
+                'comments' => $this->input->post('comments'),
+            );
+            $last_insert_id = $this->projectprocess->insert_backflush($data);
+            $result = array();
+            $this->viewTemplates('backflush_create_view', $result);
+        }
+    }
+
+    public function createBlackflush() {
+        $this->form_validation->set_rules('reference', 'Reference', 'required');
+        $this->form_validation->set_rules('temperature', 'Temperature', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $result = array();
+            $this->viewTemplates('backflush_create_view', $result);
+        } else {
+            $data = array(
+                'reference' => $this->input->post('reference'),
+                'temperature' => $this->input->post('temperature'),
+                'comments' => $this->input->post('comments'),
+            );
+            $last_insert_id = $this->projectprocess->insert_backflush($data);
+            $result['project'] = $this->projectprocess->get_project_process();
+            $result['backflush'] = $this->projectprocess->get_back_flush();
+            $this->viewTemplates('backflush_view', $result);
+        }
+    }
+
 }
