@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body no-padding">
                 <table class="table table-condensed">
                     <tbody>
-                        <tr>
+                        <tr >
                             <th>System</th>
                             <th><?php echo $project['system'] ?></th>
                             <th>Sheet:</th>
@@ -46,7 +46,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <table   id="example1" class="table table-bordered table-striped">
                     <thead>
 
-                        <tr>
+                        <tr style="font-size: 12px !important;">
+                            <th>Action</th>
                             <th>SI No</th>
                             <th>Reference</th>
                             <th>Comments</th>
@@ -59,6 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         foreach ($backflush as $result) {
                             ?>
                             <tr>
+                                <td><a href="<?php echo base_url(); ?>projectmaster/edit_black_flush/<?php echo $result['id'] ?>">Edit</a>&nbsp;&nbsp;<a href="<?php echo base_url(); ?>projectmaster/delete_backflush/<?php echo $result['id'] ?>">Delete</a></td>
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $result['reference']; ?></td>
                                 <td><?php echo $result['comments']; ?></td>

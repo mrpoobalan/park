@@ -64,7 +64,7 @@ class Projectmaster extends MY_Controller {
     public function startval($startdate) {
         $startdate = $this->input->post('startdate');
         //Check for valid date in given format
-        if (date('Y-m-d', strtotime($startdate)) == $startdate) {
+        if (date('d-m-Y', strtotime($startdate)) == $startdate) {
             return true;
         } else {
             $this->form_validation->set_message('startval', 'Please type a correct date format');
@@ -125,6 +125,7 @@ class Projectmaster extends MY_Controller {
     public function createBlackflush() {
         $this->form_validation->set_rules('reference', 'Reference', 'required');
         $this->form_validation->set_rules('temperature', 'Temperature', 'required|is_natural|numeric');
+
         if ($this->form_validation->run() == FALSE) {
             $result = array();
             $this->viewTemplates('backflush_create_view', $result);
@@ -138,6 +139,29 @@ class Projectmaster extends MY_Controller {
             $result['project'] = $this->projectprocess->get_project_process();
             $result['backflush'] = $this->projectprocess->get_back_flush();
             $this->viewTemplates('backflush_view', $result);
+        }
+    }
+
+    public function edit_black_flush() {
+        $this->form_validation->set_rules('reference', 'Reference', 'required');
+        $this->form_validation->set_rules('temperature', 'Temperature', 'required');
+        $editid = $this->uri->segment(3);
+        if ($editid != "") {
+            $result['backflush'] = $this->projectprocess->get_editback_flush($editid);
+
+            if ($this->form_validation->run() == TRUE) {
+                $data = array(
+                    'reference' => $this->input->post('reference'),
+                    'temperature' => $this->input->post('temperature'),
+                    'comments' => $this->input->post('comments'),
+                );
+                $this->projectprocess->update_backflush($data, $editid);
+                $result['project'] = $this->projectprocess->get_project_process();
+                $result['backflush'] = $this->projectprocess->get_back_flush();
+                $this->viewTemplates('backflush_view', $result);
+            } else {
+                $this->viewTemplates('backflush_create_view', $result);
+            }
         }
     }
 

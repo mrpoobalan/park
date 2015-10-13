@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#startdate').datepicker({
             autoclose: true,
             todayHighlight: true,
-            format: 'yyyy-mm-dd',
+            format: 'dd-mm-yyyy',
         });
         $("#example1").DataTable({
 //            "aoColumnDefs": [{

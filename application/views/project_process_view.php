@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <?php } ?>
                             <?php if (!empty($value)) { ?>
                                 <div class="box-footer">
-                                    <a href="<?php echo base_url(); ?>projectmaster/airSystem" class="btn-list" role="button">Project List</a>
+                                    <a href="<?php echo base_url(); ?>projectmaster/airSystem" class="btn-list" role="button">Project Process</a>
                                 </div>
                             <?php } ?>
                         </form>

@@ -78,6 +78,17 @@ class Projectprocess extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function get_editback_flush($id) {
+        $sql = "SELECT * FROM backflush where id=" . $id;
+        $query = $this->db->query($sql);
+        return $result = $query->row_array();
+    }
+
+    public function update_backflush($data, $id) {
+        $this->db->where('id', $id);
+        $this->db->update('backflush', $data);
+    }
+
 }
 
 ?>

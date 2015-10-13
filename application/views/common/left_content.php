@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     jQuery("#backflush").removeClass('active');
                     jQuery("#directvol").removeClass('active');
                 }
-                else if (activeclass == 'backflush' || activeclass == 'createBlackflush') {
+                else if (activeclass == 'backflush' || activeclass == 'createBlackflush' || activeclass == 'edit_black_flush') {
                     jQuery("#backflush").addClass('active');
                     jQuery("#airSystem").removeClass('active');
                     jQuery("#directvol").removeClass('active');

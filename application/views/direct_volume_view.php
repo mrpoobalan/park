@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <table   id="example2" class="table table-bordered table-striped">
                     <thead>
 
-                        <tr>
+                        <tr style="font-size: 12px !important;">
                             <th>SI No</th>
                             <th>Reference</th>
                             <th>Grille size</th>
