@@ -91,11 +91,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     }
                                 }
                                 ?>
-                                <label><input  type="radio" <?php echo $checkedyes; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="Y" <?php echo set_radio('check' . $processstep['id'] . '[checkbox]', 'Y'); ?>>Yes</label>
+                                <label><input  type="radio" <?php echo $checkedyes; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="Y" <?php echo set_radio('check' . $processstep['id'] . '[checkbox]', 'Y'); ?> required>Yes</label>
                                 <label><input type="radio" <?php echo $checkedno; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="N" <?php echo set_radio('check' . $processstep['id'] . '[checkbox]', 'N'); ?>>No</label>
                                 <label><input type="radio" <?php echo $checkedna; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="N/A" <?php echo set_radio('check' . $processstep['id'] . '[checkbox]', 'N/A'); ?>>N/A</label>
                             </td><span style='color: red'><?php echo form_error('check' . $processstep['id'] . '[checkbox]'); ?></span>
-    <!--                            <td><input type="textarea" class="form-control" name="check<?php echo $processstep['id']; ?>[comments]" id="comments<?php //echo $processstep['id'];                                                                       ?>" value="<?php
+    <!--                            <td><input type="textarea" class="form-control" name="check<?php echo $processstep['id']; ?>[comments]" id="comments<?php //echo $processstep['id'];                                                                          ?>" value="<?php
                             if (!empty($airsystem)) {
                                 $airsystem[$processstep['id'] - 1]['comments'];
                             }
