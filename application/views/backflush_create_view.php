@@ -23,9 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <textarea name="comments" id="comments" class="form-control custom-control" rows="5" style="resize:none"><?php echo set_value('comments'); ?></textarea>
                     </div>
                     <div >
-                        <?php if (empty($airsystem)) { ?>
-                            <button class="btn btn-primary" type="submit">Submit</button>
-                        <?php } ?>
+
+                        <button class="btn btn-primary" type="submit">Submit</button>
+
                         &nbsp;<a href="<?php echo base_url(); ?>projectmaster/backflush"><button class="btn btn-primary" type="button">Back  </button></a>
                     </div>
 
