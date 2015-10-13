@@ -27,7 +27,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             todayHighlight: true,
             format: 'yyyy-mm-dd',
         });
-        $("#example1").DataTable();
+        $("#example1").DataTable({
+//            "aoColumnDefs": [{
+//                    'bSortable': false,
+//                    'aTargets': [0]
+//                }]
+
+        });
+
     });
 </script>
 <script>

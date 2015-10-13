@@ -3,7 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="col-md-8">
     <div class="tabcontent">
+
         <h4 class="animated zoomIn">Back Flushing Report</h4>
+<!--        <a  href="<?php echo base_url(); ?>projectmaster/createBlackflush"><button class="btn btn-primary" type="button">Create Backflush</button></a>-->
 
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
@@ -71,8 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </table>
 
                 <div class="box-footer">
-
-                    &nbsp;<a href="<?php echo base_url(); ?>projectmaster/createBlackflush"><button class="btn btn-primary" type="button">Create Backflush</button></a>
+                    <a href="<?php echo base_url(); ?>projectmaster/createBlackflush"><button class="btn btn-primary" type="button">Create Backflush</button></a>
                 </div>
                 <div class="box-footer">
 
