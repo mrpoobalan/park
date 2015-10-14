@@ -43,6 +43,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
+                <?php if (isset($affect_row)) { ?>
+                    <div style="color:red;padding-left:250px;">Back Flush Deleted Successfully</div>
+                <?php } ?>
                 <table  id="example1" class="table table-bordered table-striped">
                     <thead>
 
@@ -60,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         foreach ($backflush as $result) {
                             ?>
                             <tr>
-                                <td><a href="<?php echo base_url(); ?>projectmaster/edit_black_flush/<?php echo $result['id'] ?>">Edit</a>&nbsp;&nbsp;<a href="<?php echo base_url(); ?>projectmaster/delete_backflush/<?php echo $result['id'] ?>">Delete</a></td>
+                                <td><a title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_black_flush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" ></span></a>&nbsp;&nbsp;<a title="Delete" href="<?php echo base_url(); ?>projectmaster/delete_backflush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:red;"></span></a></td>
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $result['reference']; ?></td>
                                 <td><?php echo $result['comments']; ?></td>

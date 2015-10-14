@@ -173,6 +173,7 @@ class Projectmaster extends MY_Controller {
         $id = $this->uri->segment(3);
         $affect_row = $this->projectprocess->delete_backflush($id);
         if ($affect_row) {
+            $result['affect_row'] = $affect_row;
             $result['backflush'] = $this->projectprocess->get_back_flush();
             $result['project'] = $this->projectprocess->get_project_process();
             $this->viewTemplates('backflush_view', $result);
@@ -264,6 +265,7 @@ class Projectmaster extends MY_Controller {
         $id = $this->uri->segment(3);
         $affect_row = $this->projectprocess->delete_direct_vol($id);
         if ($affect_row) {
+            $result['affect_row'] = $affect_row;
             $result['direct_volume'] = $this->projectprocess->get_direct_volume();
             $result['project'] = $this->projectprocess->get_project_process();
             $this->viewTemplates('direct_volume_view', $result);

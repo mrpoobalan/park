@@ -43,8 +43,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
-                <table   id="example2" class="table table-bordered table-striped">
-
+                <?php if (isset($affect_row)) { ?>
+                    <div style="color:red;padding-left:250px;">Direct Volume Deleted Successfully</div>
+                <?php } ?>
+                <table  id="example2" class="table table-bordered table-striped">
                     <thead>
 
                         <tr style="font-size: 12px !important;">
@@ -66,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         foreach ($direct_volume as $result) {
                             ?>
                             <tr>
-                                <td><a href="<?php echo base_url(); ?>projectmaster/edit_direct_vol/<?php echo $result['id'] ?>">Edit</a>&nbsp;&nbsp;<a href="<?php echo base_url(); ?>projectmaster/delete_direct_vol/<?php echo $result['id'] ?>">Delete</a></td>
+                                <td><a href="<?php echo base_url(); ?>projectmaster/edit_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" ></span></a>&nbsp;&nbsp;<a href="<?php echo base_url(); ?>projectmaster/delete_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:red;"></span></a></td>
                                 <td><?php echo $result['reference']; ?></td>
                                 <td><?php echo $result['grillesize']; ?></td>
                                 <td><?php echo $result['designvolume']; ?></td>
