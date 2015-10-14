@@ -89,6 +89,29 @@ class Projectprocess extends CI_Model {
         $this->db->update('backflush', $data);
     }
 
+    public function delete_backflush($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('backflush');
+        return $this->db->affected_rows();
+    }
+
+    public function delete_direct_vol($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('directvolume');
+        return $this->db->affected_rows();
+    }
+
+    public function update_directvolume($data, $id) {
+        $this->db->where('id', $id);
+        $this->db->update('directvolume', $data);
+    }
+
+    public function get_edit_direct_volume($id) {
+        $sql = "SELECT * FROM directvolume where id=" . $id;
+        $query = $this->db->query($sql);
+        return $result = $query->row_array();
+    }
+
 }
 
 ?>

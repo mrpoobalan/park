@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <thead>
 
                         <tr style="font-size: 12px !important;">
-                            <th>SI No</th>
+                            <th>Action</th>
                             <th>Reference</th>
                             <th>Grille size</th>
                             <th>Design Volume</th>
@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         foreach ($direct_volume as $result) {
                             ?>
                             <tr>
-                                <td><?php echo $i; ?></td>
+                                <td><a href="<?php echo base_url(); ?>projectmaster/edit_direct_vol/<?php echo $result['id'] ?>">Edit</a>&nbsp;&nbsp;<a href="<?php echo base_url(); ?>projectmaster/delete_direct_vol/<?php echo $result['id'] ?>">Delete</a></td>
                                 <td><?php echo $result['reference']; ?></td>
                                 <td><?php echo $result['grillesize']; ?></td>
                                 <td><?php echo $result['designvolume']; ?></td>

@@ -124,7 +124,7 @@ class Projectmaster extends MY_Controller {
 
     public function createBlackflush() {
         $this->form_validation->set_rules('reference', 'Reference', 'required');
-        $this->form_validation->set_rules('temperature', 'Temperature', 'required|is_natural|numeric');
+        $this->form_validation->set_rules('temperature', 'Temperature', 'required|numeric');
 
         if ($this->form_validation->run() == FALSE) {
             $result = array();
@@ -136,15 +136,19 @@ class Projectmaster extends MY_Controller {
                 'comments' => $this->input->post('comments'),
             );
             $last_insert_id = $this->projectprocess->insert_backflush($data);
-            $result['project'] = $this->projectprocess->get_project_process();
-            $result['backflush'] = $this->projectprocess->get_back_flush();
-            $this->viewTemplates('backflush_view', $result);
+
+            $result = array('insert_id' => $last_insert_id);
+            $this->viewTemplates('backflush_create_view', $result);
+            /* $result['project'] = $this->projectprocess->get_project_process();
+              $result['backflush'] = $this->projectprocess->get_back_flush();
+              $this->viewTemplates('backflush_view', $result);
+             */
         }
     }
 
     public function edit_black_flush() {
         $this->form_validation->set_rules('reference', 'Reference', 'required');
-        $this->form_validation->set_rules('temperature', 'Temperature', 'required');
+        $this->form_validation->set_rules('temperature', 'Temperature', 'required|numeric');
         $editid = $this->uri->segment(3);
         if ($editid != "") {
             $result['backflush'] = $this->projectprocess->get_editback_flush($editid);
@@ -165,6 +169,16 @@ class Projectmaster extends MY_Controller {
         }
     }
 
+    public function delete_backflush() {
+        $id = $this->uri->segment(3);
+        $affect_row = $this->projectprocess->delete_backflush($id);
+        if ($affect_row) {
+            $result['backflush'] = $this->projectprocess->get_back_flush();
+            $result['project'] = $this->projectprocess->get_project_process();
+            $this->viewTemplates('backflush_view', $result);
+        }
+    }
+
     public function directvol() {
 
         $result['direct_volume'] = $this->projectprocess->get_direct_volume();
@@ -174,10 +188,10 @@ class Projectmaster extends MY_Controller {
 
     public function create_direct_volume() {
         $this->form_validation->set_rules('reference', 'Reference', 'required');
-        $this->form_validation->set_rules('grille', 'Grille Size', 'required|is_natural|numeric');
-        $this->form_validation->set_rules('design', 'Design Volume', 'required|is_natural|numeric');
-        $this->form_validation->set_rules('finalvol', 'Final Volume', 'required|is_natural|numeric');
-        $this->form_validation->set_rules('correctionfact', 'Correction Factor', 'required|is_natural|numeric');
+        $this->form_validation->set_rules('grille', 'Grille Size', 'required|numeric');
+        $this->form_validation->set_rules('design', 'Design Volume', 'required|numeric');
+        $this->form_validation->set_rules('finalvol', 'Final Volume', 'required|numeric');
+        $this->form_validation->set_rules('correctionfact', 'Correction Factor', 'required|numeric');
         $this->form_validation->set_rules('settings', 'Setting', 'required');
         if ($this->form_validation->run() == FALSE) {
             $result = array();
@@ -200,9 +214,58 @@ class Projectmaster extends MY_Controller {
                 'comments' => $this->input->post('comments'),
             );
             $last_insert_id = $this->projectprocess->insert_directvolume($data);
+            $result = array('insert_id' => $last_insert_id);
+            $this->viewTemplates('directvol_create_view', $result);
+            /* $result['project'] = $this->projectprocess->get_project_process();
+              $result['direct_volume'] = $this->projectprocess->get_direct_volume();
+              $this->viewTemplates('direct_volume_view', $result);
+             *
+             */
+        }
+    }
 
+    public function edit_direct_vol() {
+        $this->form_validation->set_rules('reference', 'Reference', 'required');
+        $this->form_validation->set_rules('grille', 'Grille Size', 'required|numeric');
+        $this->form_validation->set_rules('design', 'Design Volume', 'required|numeric');
+        $this->form_validation->set_rules('finalvol', 'Final Volume', 'required|numeric');
+        $this->form_validation->set_rules('correctionfact', 'Correction Factor', 'required|numeric');
+        $this->form_validation->set_rules('settings', 'Setting', 'required');
+        $editid = $this->uri->segment(3);
+        if ($this->form_validation->run() == FALSE) {
+            $result['direct_volume'] = $this->projectprocess->get_edit_direct_volume($editid);
+            $this->viewTemplates('directvol_create_view', $result);
+        } else {
+            $design = $this->input->post('design');
+            $finalvolume = $this->input->post('finalvol');
+            $correctionfactor = $this->input->post('correctionfact');
+            $actualvolume = $finalvolume * $correctionfactor;
+            $percentage = ($actualvolume / $design);
+            $data = array(
+                'reference' => $this->input->post('reference'),
+                'grillesize' => $this->input->post('grille'),
+                'designvolume' => $design,
+                'finalvolume' => $finalvolume,
+                'correctionfactor' => $correctionfactor,
+                'actualvolume' => $actualvolume,
+                'percentage' => $percentage,
+                'settings' => $this->input->post('settings'),
+                'comments' => $this->input->post('comments'),
+            );
+            //$last_insert_id = $this->projectprocess->insert_directvolume($data);
+            $this->projectprocess->update_directvolume($data, $editid);
             $result['project'] = $this->projectprocess->get_project_process();
             $result['direct_volume'] = $this->projectprocess->get_direct_volume();
+            $this->viewTemplates('direct_volume_view', $result);
+        }
+    }
+
+    public function delete_direct_vol() {
+        $id = $this->uri->segment(3);
+        $affect_row = $this->projectprocess->delete_direct_vol($id);
+        if ($affect_row) {
+            $result['direct_volume'] = $this->projectprocess->get_direct_volume();
+            $result['project'] = $this->projectprocess->get_project_process();
             $this->viewTemplates('direct_volume_view', $result);
         }
     }

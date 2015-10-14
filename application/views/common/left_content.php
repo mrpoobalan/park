@@ -25,13 +25,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </a>
                 </div>
                 <div class="tabbox animated zoomIn element">
-                    <a href="<?php echo base_url(); ?>projectmaster">
+                    <a href="#">
                         <p><i class="fa fa-chain-broken"></i></p>
-                        <p>Project Process</p>
+                        <p>Duct Leakage</p>
                     </a>
                 </div>
-                <div class="loadmre">
+                <div id="hide" style="display:none;">
+                    <div class="tabbox animated zoomIn element" >
+                        <a href="#">
+                            <p><i class="fa fa-soundcloud"></i></p>
+                            <p>Electric Water Heaters</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-backward"></i></p>
+                            <p>Fan Coil Performance</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-volume-up"></i></p>
+                            <p>Fan Detail & Performance</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-chain-broken"></i></p>
+                            <p>Fan Static</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="loadmre" id="loadmore">
                     <a href="#"><i class="fa fa-refresh"></i> Load More</a>
+                </div>
+                <div class="loadmre" id="hidemore" style="display:none;">
+                    <a href="#"><i class="fa fa-refresh"></i> Hide </a>
                 </div>
             </div>
         </div>
@@ -59,5 +88,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     jQuery("#directvol").removeClass('active');
                 }
 
+
+                $("#loadmore").click(function() {
+                    $("#hide").show();
+                    $("#hidemore").show();
+                    $("#loadmore").hide();
+                });
+                $("#hidemore").click(function() {
+                    $("#hide").hide();
+                    $("#hidemore").hide();
+                    $("#loadmore").show();
+                });
             });
         </script>
