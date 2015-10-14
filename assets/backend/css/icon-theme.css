@@ -14,10 +14,12 @@ body{ background: #f2f2f2; }
 .loadmre a { background: #20828C; padding: 10px 15px; text-align: center; display: inline-block; color: #fff; text-transform: uppercase; }
 .loadmre a:hover, .loadmre a:focus  { background: #2AA4B1; }
 .footerlast { border-top: 1px solid #009cab; width: 100%; padding: 15px 0;  }
-.tabcontent { border: 1px solid #ccc; padding: 15px 15px 0 15px; float: left; margin: 20px 0; background: #f9f9f9; }
+.tabcontent { border: 1px solid #ccc; padding: 15px 15px 0 15px; float: left; margin: 20px 0; background: #f9f9f9;width:100% !important; }
 .tabcontent h4 { font-size: 15px; color: #484848; margin: 0 0 20px 0;  text-transform: uppercase; }
 .btn-list {  background: #20828c none repeat scroll 0 0;border-radius: 5px;color: #fff;display: inline-block;padding: 5px 10px; text-transform: uppercase; }
-
+.dataTables_scrollBody{
+    overflow-x: scroll;
+}
 
 @media only screen and (max-width: 1024px) {
     .tabbox p  { font-size: 13px; padding: 10px 15px;  }

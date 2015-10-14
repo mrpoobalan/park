@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="col-md-8">
-    <div class="content">
+    <div class="tabcontent">
 
         <h4 class="animated zoomIn">Direct Volume Grille Record Sheet</h4>
 <!--        <a  href="<?php echo base_url(); ?>projectmaster/createBlackflush"><button class="btn btn-primary" type="button">Create Backflush</button></a>-->
@@ -44,6 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
                 <table   id="example2" class="table table-bordered table-striped">
+
                     <thead>
 
                         <tr style="font-size: 12px !important;">
@@ -86,9 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="box-footer">
                     <a href="<?php echo base_url(); ?>projectmaster/create_direct_volume"><button class="btn btn-primary" type="button">Create Direct Volume</button></a>
                 </div>
-                <div class="box-footer">
 
-                </div>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
 

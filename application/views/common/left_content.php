@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a href="#"><i class="fa fa-refresh"></i> Load More</a>
                 </div>
                 <div class="loadmre" id="hidemore" style="display:none;">
-                    <a href="#"><i class="fa fa-refresh"></i> Hide </a>
+                    <a href="#"><i class="fa fa-refresh"></i> Hide More</a>
                 </div>
             </div>
         </div>

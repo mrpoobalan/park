@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
-                <table   id="example1" class="table table-bordered table-striped">
+                <table  id="example1" class="table table-bordered table-striped">
                     <thead>
 
                         <tr style="font-size: 12px !important;">

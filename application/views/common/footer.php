@@ -34,10 +34,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //                }]
             "scrollX": true
         });
+
         $("#example2").DataTable({
-            "scrollX": true
+            "scrollX": true,
         });
     });
+
 </script>
 <script>
     $(document).ready(function() {
@@ -45,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             return $(this).height();
         }).get(),
                 maxHeight = Math.max.apply(null, heights);
-
         $(".element").height(maxHeight);
     });
 </script>
