@@ -6,29 +6,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-md-4">
             <div class="icontab">
                 <h4 class="animated fadeInDownBig">Lorem ipsum text</h4>
-                <div class="tabbox animated zoomIn element">
-                    <a href="<?php echo base_url(); ?>projectmaster/airSystem"  id="airSystem">
-                        <p><i class="fa fa-soundcloud selected"></i></p>
-                        <p>Air System Pre-commissioning Checks</p>
-                    </a>
-                </div>
-                <div class="tabbox animated zoomIn element">
-                    <a href="<?php echo base_url(); ?>projectmaster/backflush" id="backflush">
-                        <p><i class="fa fa-backward"></i></p>
-                        <p>Back Flushing Report</p>
-                    </a>
-                </div>
-                <div class="tabbox animated zoomIn element">
-                    <a href="<?php echo base_url(); ?>projectmaster/directvol" id="directvol">
-                        <p><i class="fa fa-volume-up"></i></p>
-                        <p>Direct Volume Grille Record</p>
-                    </a>
-                </div>
-                <div class="tabbox animated zoomIn element">
-                    <a href="#">
-                        <p><i class="fa fa-chain-broken"></i></p>
-                        <p>Duct Leakage</p>
-                    </a>
+                <div id="previous">
+                    <div class="tabbox animated zoomIn element">
+                        <a href="<?php echo base_url(); ?>projectmaster/airSystem"  id="airSystem">
+                            <p><i class="fa fa-soundcloud selected"></i></p>
+                            <p>Air System Pre-commissioning Checks</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="<?php echo base_url(); ?>projectmaster/backflush" id="backflush">
+                            <p><i class="fa fa-backward"></i></p>
+                            <p>Back Flushing Report</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="<?php echo base_url(); ?>projectmaster/directvol" id="directvol">
+                            <p><i class="fa fa-volume-up"></i></p>
+                            <p>Direct Volume Grille Record</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-chain-broken"></i></p>
+                            <p>Duct Leakage</p>
+                        </a>
+                    </div>
                 </div>
                 <div id="hide" style="display:none;">
                     <div class="tabbox animated zoomIn element" >
@@ -57,10 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <div class="loadmre" id="loadmore">
-                    <a href="#"><i class="fa fa-refresh"></i> Load More</a>
+                    <a href="#"><i class="fa fa-refresh"></i> Load more</a>
                 </div>
                 <div class="loadmre" id="hidemore" style="display:none;">
-                    <a href="#"><i class="fa fa-refresh"></i> Hide More</a>
+                    <a href="#"><i class="fa fa-refresh"></i> Load more</a>
                 </div>
             </div>
         </div>
@@ -89,15 +91,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
 
 
+//                $("#loadmore").click(function() {
+//                    $("#hide").show();
+//                    $("#hidemore").show();
+//                    $("#loadmore").hide();
+//                });
+//                $("#hidemore").click(function() {
+//                    $("#hide").hide();
+//                    $("#hidemore").hide();
+//                    $("#loadmore").show();
+//                });
+
                 $("#loadmore").click(function() {
                     $("#hide").show();
                     $("#hidemore").show();
                     $("#loadmore").hide();
+                    $("#previous").hide();
                 });
                 $("#hidemore").click(function() {
                     $("#hide").hide();
                     $("#hidemore").hide();
                     $("#loadmore").show();
+                    $("#previous").show();
                 });
+
+
+
             });
         </script>
