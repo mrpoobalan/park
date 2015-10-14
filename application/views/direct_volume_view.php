@@ -43,13 +43,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
-                <?php if (isset($affect_row)) { ?>
-                    <div style="color:red;padding-left:250px;">Direct Volume Deleted Successfully</div>
-                <?php } ?>
+                <?php //if (isset($affect_row)) { ?>
+                <div style="color:red;padding-left:250px;"><?php echo $this->session->flashdata('affect_row'); ?></div>
+                <?php //} ?>
                 <table  id="example2" class="table table-bordered table-striped">
                     <thead>
 
-                        <tr style="font-size: 12px !important;">
+                        <tr class="datatable_header">
                             <th>Action</th>
                             <th>Reference</th>
                             <th>Grille size</th>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         foreach ($direct_volume as $result) {
                             ?>
                             <tr>
-                                <td><a title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" ></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:red;"></span></a></td>
+                                <td class="sorting_edit_delete"><a title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" style="color:#009CAB;"></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:#C40001;"></span></a></td>
                                 <td><?php echo $result['reference']; ?></td>
                                 <td><?php echo $result['grillesize']; ?></td>
                                 <td><?php echo $result['designvolume']; ?></td>

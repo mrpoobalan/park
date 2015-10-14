@@ -20,6 +20,16 @@ body{ background: #f2f2f2; }
 .dataTables_scrollBody{
     overflow-x: scroll;
 }
+.sorting_edit_delete > a {
+    padding-left: 10px;
+}
+.datatable_header{
+    white-space: nowrap;
+    font-size: 12px !important;
+}
+
+table.dataTable tr.odd { background-color: #fff;  }
+table.dataTable tr.even{ background-color: #F2F2F2;}
 
 @media only screen and (max-width: 1024px) {
     .tabbox p  { font-size: 13px; padding: 10px 15px;  }

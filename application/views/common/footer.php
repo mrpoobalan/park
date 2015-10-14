@@ -38,6 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $("#example2").DataTable({
             "scrollX": true,
         });
+        //$('td', nRow).attr('nowrap', 'nowrap');
     });
 
 </script>

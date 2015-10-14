@@ -3,13 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //set_value('reference');
 ?>
 <div class="col-md-8">
-    <div class="content">
+    <div class="tabcontent">
         <h4 class="animated zoomIn">Back Flushing Report</h4>
         <?php
         $url = $this->uri->segment(2);
         $id = $this->uri->segment(3);
         ?>
         <form role="form" method="post" action="<?php echo base_url(); ?>projectmaster/<?php echo $url; ?>/<?php echo $id; ?>">
+            <input type="hidden"  value="<?php echo $id; ?>" name="editid" id="editid">
             <div class="box animated zoomIn">
                 <?php if (isset($insert_id)) { ?>
                     <div style="align:center;color:red">Back Flushing created successfully</div>

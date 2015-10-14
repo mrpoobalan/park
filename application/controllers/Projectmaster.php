@@ -4,24 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Projectmaster extends MY_Controller {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     * 	- or -
-     * 		http://example.com/index.php/welcome/index
-     * 	- or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see http://codeigniter.com/user_guide/general/urls.html
-     *
-     * $this->buildTemplate('airsystem_process_view', $data, array('sidebar' => 'common/left_content'));
-     * $this->viewTemplates('airsystem_process_view', $data, array('left_content' => 'common/main_left_content'));
-     */
     function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
@@ -160,9 +142,13 @@ class Projectmaster extends MY_Controller {
                     'comments' => $this->input->post('comments'),
                 );
                 $this->projectprocess->update_backflush($data, $editid);
-                $result['project'] = $this->projectprocess->get_project_process();
-                $result['backflush'] = $this->projectprocess->get_back_flush();
-                $this->viewTemplates('backflush_view', $result);
+                $this->session->set_flashdata('affect_row', 'Updated Successfully');
+                //$this->session->set_tempdata('affect_row', 'Updated Successfully', 5);
+                redirect('projectmaster/backflush');
+
+                /* $result['project'] = $this->projectprocess->get_project_process();
+                  $result['backflush'] = $this->projectprocess->get_back_flush();
+                  $this->viewTemplates('backflush_view', $result); */
             } else {
                 $this->viewTemplates('backflush_create_view', $result);
             }
@@ -173,10 +159,12 @@ class Projectmaster extends MY_Controller {
         $id = $this->uri->segment(3);
         $affect_row = $this->projectprocess->delete_backflush($id);
         if ($affect_row) {
-            $result['affect_row'] = $affect_row;
-            $result['backflush'] = $this->projectprocess->get_back_flush();
-            $result['project'] = $this->projectprocess->get_project_process();
-            $this->viewTemplates('backflush_view', $result);
+            $this->session->set_flashdata('affect_row', 'Deleted Successfully');
+            redirect('projectmaster/backflush');
+            //$result['affect_row'] = $affect_row;
+            //$result['backflush'] = $this->projectprocess->get_back_flush();
+            // $result['project'] = $this->projectprocess->get_project_process();
+            //$this->viewTemplates('backflush_view', $result);
         }
     }
 
@@ -253,22 +241,32 @@ class Projectmaster extends MY_Controller {
                 'settings' => $this->input->post('settings'),
                 'comments' => $this->input->post('comments'),
             );
-            //$last_insert_id = $this->projectprocess->insert_directvolume($data);
+
             $this->projectprocess->update_directvolume($data, $editid);
-            $result['project'] = $this->projectprocess->get_project_process();
-            $result['direct_volume'] = $this->projectprocess->get_direct_volume();
-            $this->viewTemplates('direct_volume_view', $result);
+            $this->session->set_flashdata('affect_row', 'Updated Successfully');
+            redirect('projectmaster/directvol');
+
+            /* $result['project'] = $this->projectprocess->get_project_process();
+              $result['direct_volume'] = $this->projectprocess->get_direct_volume();
+              $this->viewTemplates('direct_volume_view', $result);
+             *
+             */
         }
     }
 
     public function delete_direct_vol() {
         $id = $this->uri->segment(3);
+
         $affect_row = $this->projectprocess->delete_direct_vol($id);
         if ($affect_row) {
-            $result['affect_row'] = $affect_row;
-            $result['direct_volume'] = $this->projectprocess->get_direct_volume();
-            $result['project'] = $this->projectprocess->get_project_process();
-            $this->viewTemplates('direct_volume_view', $result);
+            $this->session->set_flashdata('affect_row', 'Deleted Successfully');
+            redirect('projectmaster/directvol');
+            /* $result['affect_row'] = $affect_row;
+              $result['direct_volume'] = $this->projectprocess->get_direct_volume();
+              $result['project'] = $this->projectprocess->get_project_process();
+              $this->viewTemplates('direct_volume_view', $result);
+             *
+             */
         }
     }
 

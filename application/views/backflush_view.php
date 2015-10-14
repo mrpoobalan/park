@@ -43,13 +43,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
-                <?php if (isset($affect_row)) { ?>
-                    <div style="color:red;padding-left:250px;">Back Flush Deleted Successfully</div>
-                <?php } ?>
+                <?php //if (isset($affect_row)) { ?>
+                <div style="color:red;padding-left:250px;"><?php echo $this->session->flashdata('affect_row'); ?></div>
+                <?php // } ?>
                 <table  id="example1" class="table table-bordered table-striped">
                     <thead>
 
-                        <tr style="font-size: 12px !important;">
+                        <tr class="datatable_header" >
                             <th>Action</th>
                             <th>SI No</th>
                             <th>Reference</th>
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         foreach ($backflush as $result) {
                             ?>
                             <tr>
-                                <td><a title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_black_flush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" ></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_backflush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:red;"></span></a></td>
+                                <td class="sorting_edit_delete"><a  title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_black_flush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" style="color:#009CAB;" ></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_backflush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:#C40001;"></span></a></td>
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $result['reference']; ?></td>
                                 <td><?php echo $result['comments']; ?></td>
@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a href="<?php echo base_url(); ?>projectmaster/createBlackflush"><button class="btn btn-primary" type="button">Create Backflush</button></a>
                 </div>
                 <div class="box-footer">
-
+                    <?php //echo $this->session->unset_userdata('affect_row'); ?>
                 </div>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
