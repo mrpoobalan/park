@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         foreach ($backflush as $result) {
                             ?>
                             <tr>
-                                <td><a title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_black_flush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" ></span></a>&nbsp;&nbsp;<a title="Delete" href="<?php echo base_url(); ?>projectmaster/delete_backflush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:red;"></span></a></td>
+                                <td><a title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_black_flush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" ></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_backflush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:red;"></span></a></td>
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $result['reference']; ?></td>
                                 <td><?php echo $result['comments']; ?></td>

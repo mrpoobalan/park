@@ -74,11 +74,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     jQuery("#backflush").removeClass('active');
                     jQuery("#directvol").removeClass('active');
                 }
-                else if (activeclass == 'backflush' || activeclass == 'createBlackflush' || activeclass == 'edit_black_flush') {
+                else if (activeclass == 'backflush' || activeclass == 'createBlackflush' || activeclass == 'edit_black_flush' || activeclass == 'delete_backflush') {
                     jQuery("#backflush").addClass('active');
                     jQuery("#airSystem").removeClass('active');
                     jQuery("#directvol").removeClass('active');
-                } else if (activeclass == 'directvol' || activeclass == 'create_direct_volume') {
+                } else if (activeclass == 'directvol' || activeclass == 'create_direct_volume' || activeclass == 'edit_direct_vol' || activeclass == 'delete_direct_vol') {
                     jQuery("#directvol").addClass('active');
                     jQuery("#airSystem").removeClass('active');
                     jQuery("#backflush").removeClass('active');

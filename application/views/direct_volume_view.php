@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         foreach ($direct_volume as $result) {
                             ?>
                             <tr>
-                                <td><a href="<?php echo base_url(); ?>projectmaster/edit_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" ></span></a>&nbsp;&nbsp;<a href="<?php echo base_url(); ?>projectmaster/delete_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:red;"></span></a></td>
+                                <td><a title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" ></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:red;"></span></a></td>
                                 <td><?php echo $result['reference']; ?></td>
                                 <td><?php echo $result['grillesize']; ?></td>
                                 <td><?php echo $result['designvolume']; ?></td>

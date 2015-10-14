@@ -49,6 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 maxHeight = Math.max.apply(null, heights);
         $(".element").height(maxHeight);
     });
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this Item?');
+    }
 </script>
 
 
