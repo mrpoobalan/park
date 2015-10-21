@@ -1,27 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="icontab">
                 <h4 class="animated fadeInDownBig">Lorem ipsum text</h4>
-                <div id="previous">
+                <div class="icntabs">
                     <div class="tabbox animated zoomIn element">
                         <a href="<?php echo base_url(); ?>projectmaster/airSystem"  id="airSystem">
-                            <p><i class="fa fa-soundcloud selected"></i></p>
+                            <p><i class="fa fa-soundcloud" id="airSystemli"></i></p>
                             <p>Air System Pre-commissioning Checks</p>
                         </a>
                     </div>
                     <div class="tabbox animated zoomIn element">
                         <a href="<?php echo base_url(); ?>projectmaster/backflush" id="backflush">
-                            <p><i class="fa fa-backward"></i></p>
+                            <p><i class="fa fa-backward"  id="backflushli"></i></p>
                             <p>Back Flushing Report</p>
                         </a>
                     </div>
                     <div class="tabbox animated zoomIn element">
                         <a href="<?php echo base_url(); ?>projectmaster/directvol" id="directvol">
-                            <p><i class="fa fa-volume-up"></i></p>
+                            <p><i class="fa fa-volume-up" id="directvolli"></i></p>
                             <p>Direct Volume Grille Record</p>
                         </a>
                     </div>
@@ -32,10 +32,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </a>
                     </div>
                 </div>
-                <div id="hide" style="display:none;">
-                    <div class="tabbox animated zoomIn element" >
-                        <a href="#">
-                            <p><i class="fa fa-soundcloud"></i></p>
+                <div class="icntabs">
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#" class="active">
+                            <p><i class="fa fa-soundcloud selected"></i></p>
                             <p>Electric Water Heaters</p>
                         </a>
                     </div>
@@ -58,14 +58,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </a>
                     </div>
                 </div>
-                <div class="loadmre" id="loadmore">
-                    <a href="#"><i class="fa fa-refresh"></i> Load more</a>
+
+                <div class="icntabs">
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#" class="active">
+                            <p><i class="fa fa-soundcloud selected"></i></p>
+                            <p>Air System -commissioning Checks 3</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-backward"></i></p>
+                            <p>Back  Report</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-volume-up"></i></p>
+                            <p>Direct Voluasdsadme Grille Record</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-chain-broken"></i></p>
+                            <p>Duct </p>
+                        </a>
+                    </div>
                 </div>
-                <div class="loadmre" id="hidemore" style="display:none;">
-                    <a href="#"><i class="fa fa-refresh"></i> Load more</a>
+
+                <div class="icntabs">
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#" class="active">
+                            <p><i class="fa fa-soundcloud selected"></i></p>
+                            <p>Air Symissioning Checks 4</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-backward"></i></p>
+                            <p>Back  Report</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-volume-up"></i></p>
+                            <p>Direct  Grille Record</p>
+                        </a>
+                    </div>
+                    <div class="tabbox animated zoomIn element">
+                        <a href="#">
+                            <p><i class="fa fa-chain-broken"></i></p>
+                            <p>Duct Lesadsadakage</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="loadmre">
+                    <a href="javascript:;" class="page-backward"><i class="fa fa-step-backward"></i></a>
+                    <span class="currentPagePagination"></span>/<span class="totalPagesPagination"></span>
+                    <a href="javascript:;" class="page-forward"><i class="fa fa-step-forward"></i></a>
                 </div>
             </div>
         </div>
+
         <?php $uri = $this->uri->segment(2); ?>
         <script>
 
@@ -75,47 +129,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     jQuery("#airSystem").addClass('active');
                     jQuery("#backflush").removeClass('active');
                     jQuery("#directvol").removeClass('active');
+
+                    jQuery("#airSystemli").addClass('selected');
+                    jQuery("#backflushli").removeClass('selected');
+                    jQuery("#directvolli").removeClass('selected');
                 }
                 else if (activeclass == 'backflush' || activeclass == 'createBlackflush' || activeclass == 'edit_black_flush' || activeclass == 'delete_backflush') {
                     jQuery("#backflush").addClass('active');
                     jQuery("#airSystem").removeClass('active');
                     jQuery("#directvol").removeClass('active');
+
+                    jQuery("#backflushli").addClass('selected');
+                    jQuery("#airSystemli").removeClass('selected');
+                    jQuery("#directvolli").removeClass('selected');
+
                 } else if (activeclass == 'directvol' || activeclass == 'create_direct_volume' || activeclass == 'edit_direct_vol' || activeclass == 'delete_direct_vol') {
                     jQuery("#directvol").addClass('active');
                     jQuery("#airSystem").removeClass('active');
                     jQuery("#backflush").removeClass('active');
+
+                    jQuery("#directvolli").addClass('selected');
+                    jQuery("#airSystemli").removeClass('selected');
+                    jQuery("#backflushli").removeClass('selected');
                 } else {
                     jQuery("#airSystem").addClass('active');
                     jQuery("#backflush").removeClass('active');
                     jQuery("#directvol").removeClass('active');
+
+                    jQuery("#airSystemli").addClass('selected');
+                    jQuery("#backflushli").removeClass('selected');
+                    jQuery("#directvolli").removeClass('selected');
                 }
-
-
-//                $("#loadmore").click(function() {
-//                    $("#hide").show();
-//                    $("#hidemore").show();
-//                    $("#loadmore").hide();
-//                });
-//                $("#hidemore").click(function() {
-//                    $("#hide").hide();
-//                    $("#hidemore").hide();
-//                    $("#loadmore").show();
-//                });
-
-                $("#loadmore").click(function() {
-                    $("#hide").show();
-                    $("#hidemore").show();
-                    $("#loadmore").hide();
-                    $("#previous").hide();
-                });
-                $("#hidemore").click(function() {
-                    $("#hide").hide();
-                    $("#hidemore").hide();
-                    $("#loadmore").show();
-                    $("#previous").show();
-                });
-
-
-
             });
         </script>

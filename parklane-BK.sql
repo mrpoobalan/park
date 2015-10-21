@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 21, 2015 at 12:33 PM
+-- Generation Time: Oct 13, 2015 at 07:48 PM
 -- Server version: 5.5.44-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.13
 
@@ -41,22 +41,22 @@ CREATE TABLE IF NOT EXISTS `airsystem` (
 --
 
 INSERT INTO `airsystem` (`id`, `pid`, `propertyid`, `propertyname`, `propertycheck`, `comments`) VALUES
-(1, 1, 1, 'Installation Complete', 'Y', 'testing  comments'),
-(2, 1, 2, 'Fire Dampers Open & Operational', 'N', ''),
-(3, 1, 3, 'Balancing Dampers Open', 'N/A', ''),
-(4, 1, 4, 'Grilles & Diffuser Open', 'Y', ''),
-(5, 1, 5, 'Fan Chambers Clean', 'N', ''),
-(6, 1, 6, 'Ductwork Clean', 'N/A', ''),
-(7, 1, 7, 'Transit Bolts Removed', 'Y', ''),
-(8, 1, 8, 'Pulleys Secure On Shaft', 'N', ''),
-(9, 1, 9, 'Pulley Alignment & Belt Tension', 'N/A', ''),
-(10, 1, 10, 'Motor & Pump Bearing Lubrication', 'Y', ''),
-(11, 1, 11, 'Filters In Position & Clean', 'N', ''),
-(12, 1, 12, 'Drive Guards Fitted', 'N/A', ''),
-(13, 1, 13, 'Starter Overload Settings', 'Y', ''),
-(14, 1, 14, 'Electrical Supply Available', 'N', ''),
-(15, 1, 15, 'Direction Of Rotation Of Motor Shaft', 'N/A', ''),
-(16, 1, 16, 'Motor Running Currents (All Phases)', 'Y', '');
+(1, 1, 1, 'Installation Complete', 'Y', 'comments one'),
+(2, 1, 2, 'Fire Dampers Open & Operational', 'N', 'comments one'),
+(3, 1, 3, 'Balancing Dampers Open', 'N/A', 'comments one'),
+(4, 1, 4, 'Grilles & Diffuser Open', 'Y', 'comments one'),
+(5, 1, 5, 'Fan Chambers Clean', 'N', 'comments one'),
+(6, 1, 6, 'Ductwork Clean', 'N/A', 'comments one'),
+(7, 1, 7, 'Transit Bolts Removed', 'Y', 'comments one'),
+(8, 1, 8, 'Pulleys Secure On Shaft', 'N', 'comments one'),
+(9, 1, 9, 'Pulley Alignment & Belt Tension', 'N/A', 'comments one'),
+(10, 1, 10, 'Motor & Pump Bearing Lubrication', 'Y', 'comments one'),
+(11, 1, 11, 'Filters In Position & Clean', 'N', 'comments one'),
+(12, 1, 12, 'Drive Guards Fitted', 'N/A', 'comments one'),
+(13, 1, 13, 'Starter Overload Settings', 'Y', 'comments one'),
+(14, 1, 14, 'Electrical Supply Available', 'N', 'comments one'),
+(15, 1, 15, 'Direction Of Rotation Of Motor Shaft', 'N/A', 'comments one'),
+(16, 1, 16, 'Motor Running Currents (All Phases)', 'Y', 'comments one');
 
 -- --------------------------------------------------------
 
@@ -70,22 +70,33 @@ CREATE TABLE IF NOT EXISTS `backflush` (
   `comments` text NOT NULL,
   `temperature` float(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `backflush`
 --
 
 INSERT INTO `backflush` (`id`, `reference`, `comments`, `temperature`) VALUES
-(1, '101', 'Comments testing', 12.25),
-(2, '123', 'Testing comments', 10.00),
-(3, '102', 'comments', 10.00),
-(5, '108', 'comments', 12.00),
-(6, '112', 'testing', 15.00),
-(7, '110', 'edit  test', 10.50),
-(8, '110', 'edit ', 10.50),
-(20, '103', 'testign comments', 10.00),
-(22, '121', 'flashdata1', 21.00);
+(1, '101', 'temperature', 10.50),
+(2, '101', 'temperature', 10.50),
+(3, '101', 'required', 10.50),
+(4, '102', 'comments 102', 11.50),
+(5, '102', 'comments 102', 11.50),
+(6, '103', 'test', 121.50),
+(7, '101', 'temperature', 10.50),
+(8, '101', 'temperature', 10.50),
+(9, '101', 'required', 10.50),
+(10, '102', 'comments 102', 11.50),
+(11, '102', 'comments 102', 11.50),
+(12, '103', 'test', 121.50),
+(13, '101', 'temperature', 10.50),
+(14, '101', 'temperature', 10.50),
+(15, '101', 'required', 10.50),
+(16, '102', 'comments 102', 11.50),
+(17, '102', 'comments 102', 11.50),
+(18, '103', 'test', 121.50),
+(19, '108', '', 121.50),
+(20, '123', 'Testing comments', 100.40);
 
 -- --------------------------------------------------------
 
@@ -105,16 +116,16 @@ CREATE TABLE IF NOT EXISTS `directvolume` (
   `settings` varchar(255) NOT NULL,
   `comments` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `directvolume`
 --
 
 INSERT INTO `directvolume` (`id`, `reference`, `grillesize`, `designvolume`, `finalvolume`, `correctionfactor`, `actualvolume`, `percentage`, `settings`, `comments`) VALUES
-(2, '101', 3, 10.00, 20.00, 10.00, 200.00, 9.99, 'settings', 'Testing'),
-(3, '102', 25, 12.00, 20.00, 5.50, 110.00, 9.17, 'settings', 'comments'),
-(5, '108', 3, 12.00, 12.00, 50.00, 600.00, 9.99, 'testing', 'comments');
+(1, '101', 2, 10.00, 20.00, 5.50, 110.00, 9.99, 'testing', 'testing completed'),
+(2, '102', 20, 25.00, 15.00, 20.00, 300.00, 9.99, 'settings', 'settings comments comments'),
+(4, '103', 25, 10.00, 12.00, 10.00, 120.00, 9.99, 'testing', 'besgin');
 
 -- --------------------------------------------------------
 
@@ -134,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `processcomments` (
 --
 
 INSERT INTO `processcomments` (`id`, `projectid`, `comments`) VALUES
-(1, 1, 'general testing comments');
+(1, 1, 'Project process has completed');
 
 -- --------------------------------------------------------
 
@@ -169,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `projectprocess` (
   `engineername` varchar(50) NOT NULL,
   `project` varchar(255) NOT NULL,
   `system` varchar(255) NOT NULL,
-  `date` varchar(50) NOT NULL,
+  `date` date NOT NULL,
   `refno` int(50) NOT NULL,
   `totnopages` int(50) NOT NULL,
   `client` varchar(255) NOT NULL,
@@ -181,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `projectprocess` (
 --
 
 INSERT INTO `projectprocess` (`id`, `engineername`, `project`, `system`, `date`, `refno`, `totnopages`, `client`) VALUES
-(1, 'Test', 'Water Treatment', 'system', '14-10-2015', 101, 10, 'ParkLane');
+(1, 'Test', 'Water Treatment', 'system', '2015-10-12', 101, 10, 'ParkLane');
 
 -- --------------------------------------------------------
 

@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 //set_value('reference');
 ?>
-<div class="col-md-8">
-    <div class="tabcontent">
+<div class="col-md-9">
+    <div id="restables"  class="tabcontent">
         <h4 class="animated zoomIn">Back Flushing Report</h4>
         <?php
         $url = $this->uri->segment(2);

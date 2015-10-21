@@ -1,8 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="col-md-8">
-    <div class="tabcontent">
+<div class="col-md-9">
+    <div id="restables" class="tabcontent">
 
         <h4 class="animated zoomIn">Direct Volume Grille Record Sheet</h4>
 <!--        <a  href="<?php echo base_url(); ?>projectmaster/createBlackflush"><button class="btn btn-primary" type="button">Create Backflush</button></a>-->
@@ -44,13 +44,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
                 <?php //if (isset($affect_row)) { ?>
-                <div style="color:red;padding-left:250px;"><?php echo $this->session->flashdata('affect_row'); ?></div>
+                <div style="color:red;text-align:center;"><?php echo $this->session->flashdata('affect_row'); ?></div>
                 <?php //} ?>
                 <table  id="example2" class="table table-bordered table-striped">
-                    <thead>
+                    <thead class="cf">
 
                         <tr class="datatable_header">
-                            <th>Action</th>
+                            <th class="sorting_action">Action</th>
                             <th>Reference</th>
                             <th>Grille size</th>
                             <th>Design Volume</th>
@@ -68,16 +68,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         foreach ($direct_volume as $result) {
                             ?>
                             <tr>
-                                <td class="sorting_edit_delete"><a title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" style="color:#009CAB;"></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:#C40001;"></span></a></td>
-                                <td><?php echo $result['reference']; ?></td>
-                                <td><?php echo $result['grillesize']; ?></td>
-                                <td><?php echo $result['designvolume']; ?></td>
-                                <td><?php echo $result['finalvolume']; ?></td>
-                                <td><?php echo $result['correctionfactor']; ?></td>
-                                <td><?php echo $result['actualvolume']; ?></td>
-                                <td><?php echo $result['percentage']; ?></td>
-                                <td><?php echo $result['settings']; ?></td>
-                                <td><?php echo $result['comments']; ?></td>
+                                <td data-title="Action" class="sorting_edit_delete"><a title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" style="color:#009CAB;"></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_direct_vol/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:#C40001;"></span></a></td>
+                                <td data-title="Reference"><?php echo $result['reference']; ?></td>
+                                <td data-title="Grille size"><?php echo $result['grillesize']; ?></td>
+                                <td data-title="Design Volume"><?php echo $result['designvolume']; ?></td>
+                                <td data-title="Final Volume"><?php echo $result['finalvolume']; ?></td>
+                                <td data-title="Correction Factor"><?php echo $result['correctionfactor']; ?></td>
+                                <td data-title="Actual Volume"><?php echo $result['actualvolume']; ?></td>
+                                <td data-title="Percentage"><?php echo $result['percentage']; ?></td>
+                                <td data-title="Settings"><?php echo $result['settings']; ?></td>
+                                <td data-title="Comments"><?php echo $result['comments']; ?></td>
                             </tr>
                             <?php $i++; ?>
                             <?php

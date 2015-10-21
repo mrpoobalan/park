@@ -12,17 +12,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/backend/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/backend/css/admin.css"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/backend/css/icon-theme.css"/>
+
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/backend/css/datepicker3.css">
         <!-- DataTables -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/backend/datatables/dataTables.bootstrap.css">
         <script src="<?php echo base_url(); ?>assets/backend/js/jQuery-2.1.4.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/backend/js/bootstrap.min.js"></script>
-
+        <script src="<?php echo base_url(); ?>assets/backend/js/smooth-scroll.js"></script>
     </head>
     <body>
 
         <div class="navbar-masthead headertop">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 col-xs-12 col-sm-12">
                         <div class="headertxt">

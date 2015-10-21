@@ -1,8 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="col-md-8">
-    <div class="tabcontent">
+<div class="col-md-9">
+    <div id="restables" class="tabcontent">
 
         <h4 class="animated zoomIn">Back Flushing Report</h4>
 <!--        <a  href="<?php echo base_url(); ?>projectmaster/createBlackflush"><button class="btn btn-primary" type="button">Create Backflush</button></a>-->
@@ -44,13 +44,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
                 <?php //if (isset($affect_row)) { ?>
-                <div style="color:red;padding-left:250px;"><?php echo $this->session->flashdata('affect_row'); ?></div>
+                <div style="color:red;text-align:center"><?php echo $this->session->flashdata('affect_row'); ?></div>
                 <?php // } ?>
                 <table  id="example1" class="table table-bordered table-striped">
-                    <thead>
+                    <thead class="cf">
 
                         <tr class="datatable_header" >
-                            <th>Action</th>
+                            <th class="sorting_action">Action</th>
                             <th>SI No</th>
                             <th>Reference</th>
                             <th>Comments</th>
@@ -62,12 +62,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $i = 1;
                         foreach ($backflush as $result) {
                             ?>
-                            <tr>
-                                <td class="sorting_edit_delete"><a  title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_black_flush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" style="color:#009CAB;" ></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_backflush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:#C40001;"></span></a></td>
-                                <td><?php echo $i; ?></td>
-                                <td><?php echo $result['reference']; ?></td>
-                                <td><?php echo $result['comments']; ?></td>
-                                <td><?php echo $result['temperature']; ?></td>
+                            <tr >
+                                <td data-title="Action" class="sorting_edit_delete"><a  title="Edit" href="<?php echo base_url(); ?>projectmaster/edit_black_flush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-pencil" style="color:#009CAB;" ></span></a>&nbsp;&nbsp;<a title="Delete" onclick="return confirmDelete();" href="<?php echo base_url(); ?>projectmaster/delete_backflush/<?php echo $result['id'] ?>"><span class="glyphicon glyphicon-trash"style="color:#C40001;"></span></a></td>
+                                <td data-title="SI No"><?php echo $i; ?></td>
+                                <td data-title="Reference"><?php echo $result['reference']; ?></td>
+                                <td data-title="Comments"><?php echo $result['comments']; ?></td>
+                                <td data-title="Temperature"><?php echo $result['temperature']; ?></td>
 
                             </tr>
                             <?php $i++; ?>

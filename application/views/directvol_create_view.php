@@ -8,8 +8,8 @@ $url = $this->uri->segment(2);
 $id = $this->uri->segment(3);
 ?>
 
-<div class="col-md-8">
-    <div class="content">
+<div class="col-md-9">
+    <div id="restables" class="tabcontent">
         <h4 class="animated zoomIn">Direct Volume Grille Record Sheet</h4>
         <form role="form" method="post" action="<?php echo base_url(); ?>projectmaster/<?php echo $url; ?>/<?php echo $id; ?>">
             <div class="box animated zoomIn">

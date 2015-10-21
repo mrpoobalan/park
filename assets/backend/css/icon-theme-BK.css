@@ -1,42 +1,27 @@
-body{ background: #f2f2f2;  }
+body{ background: #f2f2f2; }
 .headertop { background: #009cab; padding: 15px 0; margin-bottom: 15px; }
 .headertxt { float: left; }
 .headertxt h1 { font-size: 25px; margin-top: 0; margin-bottom: 0; color: #fff; }
 .usrtxt p { font-size: 14px; color: #fff; text-align: right; margin-bottom: 0; padding-top: 5px; }
-.icontab { margin-bottom: 20px; float: left; width: 100%; }
+.icontab { margin-bottom: 20px; float: left; }
 .icontab h4 { font-size: 13px; color: #fff; background: #009CAB;  display: table; margin: 10px auto; text-align: center; text-transform: uppercase; padding: 10px 15px; }
 .tabbox { border: 1px solid #ccc; float: left; color: #009cab; margin: 2% 1% 0 1%; width: 48%;  }
 .tabbox .fa { font-size: 38px; }
-.tabbox p { text-align: center; font-size: 14px;word-wrap: break-word;  }
+.tabbox p { text-align: center; font-size: 14px; padding: 10px; }
 .tabbox a { display: block; color: #009cab; width: 100%; padding: 15px; height: 100%;  }
 .tabbox a:hover, .tabbox a:focus, .tabbox a.active { color: #fff; background: #009cab; border: 1px solid #009cab; }
 .loadmre { float: left; margin: 20px 0;  text-align: center; width: 100%; }
 .loadmre a { background: #20828C; padding: 10px 15px; text-align: center; display: inline-block; color: #fff; text-transform: uppercase; }
-.loadmre a.disable:hover, .loadmre a.disable:focus, .loadmre a.disable { background: #E0E0E0; }
 .loadmre a:hover, .loadmre a:focus  { background: #2AA4B1; }
-.loadmre input { height: 40px; outline: none; }
-.loadmre input:focus { outline: none; }
-.footerlast { border-top: 1px solid #009cab; width: 100%; padding: 15px 0;   }
-.tabcontent { border: 1px solid #ccc; padding: 15px 15px 0 15px; float: left; margin: 20px 0; width: 100% !important; background: #f9f9f9; }
+.footerlast { border-top: 1px solid #009cab; width: 100%; padding: 15px 0;  }
+.tabcontent { border: 1px solid #ccc; padding: 15px 15px 0 15px; float: left; margin: 20px 0; background: #f9f9f9;width:100% !important; }
 .tabcontent h4 { font-size: 15px; color: #484848; margin: 0 0 20px 0;  text-transform: uppercase; }
-
-.nopadding { padding-left: 4px; }
-.righttxt { float: right; }
 .btn-list {  background: #20828c none repeat scroll 0 0;border-radius: 5px;color: #fff;display: inline-block;padding: 5px 10px; text-transform: uppercase; }
-.comment-area{
-    width: 100%; resize:none; height:117px;
-}
 .dataTables_scrollBody{
     overflow-x: scroll;
 }
 .sorting_edit_delete > a {
     padding-left: 10px;
-}
-.dataTables_scroll .sorting_action{
-    padding-right: 20px;
-    padding-left: 20px;
-    text-align: center;
-    width: auto !important;
 }
 .datatable_header{
     white-space: nowrap;
@@ -45,14 +30,12 @@ body{ background: #f2f2f2;  }
 
 table.dataTable tr.odd { background-color: #fff;  }
 table.dataTable tr.even{ background-color: #F2F2F2;}
-.loadmre span { font-size: 15px; color: #333; }
 
 @media only screen and (max-width: 1024px) {
-    .tabbox p { font-size: 12px; padding: 0; }
-    .tabbox a { padding: 5px; }
+    .tabbox p  { font-size: 13px; padding: 10px 15px;  }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     .headertxt { float: none; margin-bottom: 15px; }
     .headertxt h1, .headertop p { text-align: center; }
     .tabbox p  { font-size: 15px; margin-bottom: 0; padding: 10px 15px; }
@@ -60,66 +43,15 @@ table.dataTable tr.even{ background-color: #F2F2F2;}
     .tabcontent { margin-bottom: 60px; }
 }
 
-
 @media only screen and (max-width: 800px) {
     .headertxt { float: none; margin-bottom: 15px; }
     .headertxt h1, .headertop p { text-align: center; }
-    .comm-hide{
-        display:none;
-    }
-
-    /* Force table to not be like tables anymore */
-    #restables table,
-    #restables thead,
-    #restables tbody,
-    #restables th,
-    #restables td,
-    #restables tr {
-        display: block;
-    }
-
-    /* Hide table headers (but not display: none;, for accessibility) */
-    #restables thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-
-    #restables td {
-        /* Behave  like a "row" padding-left:50%*/
-        border: none;
-        position: relative;
-        padding-left: 60%;
-        white-space: normal;
-        text-align:left;
-        min-height: 30px;
-    }
-
-    #restables td:before {
-        /* Now like a table header */
-        position: absolute;
-        /* Top/left values mimic padding */
-        top: 6px;
-        left: 0;
-        width: 100%;
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align:left;
-        font-weight: bold;
-    }
-
-    /*
-    Label the data
-    */
-    #restables td:before { content: attr(data-title); }
 }
 
 @media only screen and (max-width: 980px) {
     .headertxt { float: none; margin-bottom: 15px; }
     .headertxt h1, .headertop p { text-align: center; }
 }
-
 
 @media only screen and (max-width: 480px) {
     .tabbox, .tabbox a:hover, .tabbox a:focus, .tabbox a.active { background: none; border: none; }
@@ -128,8 +60,6 @@ table.dataTable tr.even{ background-color: #F2F2F2;}
     .tabbox p { color: #009CAB; font-size: 13px; padding: 5px 0; text-align: center;  }
     .loadmre { margin-top: 0; }
     .tabcontent { margin-bottom: 60px; }
-    .righttxt { float: none; text-align: center; margin-bottom: 10px; }
-    .footerlast { font-size: 13px; text-align: center; }
 }
 
 @media only screen and (max-width: 320px) {
@@ -139,10 +69,8 @@ table.dataTable tr.even{ background-color: #F2F2F2;}
     .tabbox .fa:focus, .tabbox .fa.selected { background: #009CAB; color: #fff; cursor: pointer; }
     .tabbox .fa { border: 1px solid #ccc; padding: 18px; font-size: 38px; color: #009CAB; }
     .loadmre { margin-top: 0; }
-    .footerlast { font-size: 13px; text-align: center; }
+    .footerlast { font-size: 13px; }
     .tabcontent { margin-bottom: 60px; }
-    .righttxt { float: none; text-align: center; margin-bottom: 10px; }
-
 }
 
 

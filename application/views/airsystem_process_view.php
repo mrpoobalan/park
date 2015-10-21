@@ -1,27 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="col-md-8">
-    <div class="tabcontent">
+<div class="col-md-9">
+    <div id="restables" class="tabcontent">
         <h4 class="animated zoomIn">Air System Pre-commissioning Checks</h4>
-        <?php
-//        echo "<pre>";
-//        print_r($project);
-//        exit;
-        ?>
         <div class="box animated zoomIn">
             <div class="box-body no-padding">
                 <table class="table table-condensed">
                     <tbody>
                         <tr>
-                            <th>Project:</th>
+                            <th>Project</th>
                             <th><?php echo $project['project']; ?></th>
                             <th>Ref:</th>
                             <th><?php echo $project['refno']; ?></th>
                             <th>Rev No.</th>
-                            <th>10</th>
+                            <th>1011</th>
                         </tr>
                     </tbody>
+
                 </table>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
@@ -33,46 +29,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <tr>
                             <th>System</th>
                             <th><?php echo $project['system'] ?></th>
-                            <th>Sheet:</th>
+                            <th>Sheet</th>
                             <th><?php echo $project['totnopages'] ?></th>
                             <th>of</th>
-                            <th>0</th>
+                            <th>100</th>
                         </tr>
                     </tbody>
                 </table>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
 
-        <?php
-        //echo "<pre>";
-        //print_r($process);
-        //exit;
-        ?>
         <form role="form" method="post">
             <div class="box animated zoomIn">
                 <div class="box-body no-padding">
                     <table class="table table-condensed">
-                        <tbody>
 
+                        <thead class="cf">
+                            <tr>
+                                <th>General</th>
+                                <th>Check</th>
+                                <th>Comments</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
                             <?php
                             $process1 = "";
                             foreach ($process as $processstep) {
+                                ?>
+                                <tr >
 
-                                if ($processstep['processtitle'] != $process1) {
-                                    ?>
-
-                                    <tr>
-                                        <th><?php echo $processstep['processtitle']; ?></th>
-                                        <?php if ($processstep['processtitle'] == 'General') { ?>
-                                            <th>Check</th>
-                                            <th>Comments</th>
-                                        <?php } ?>
-                                    </tr>
-                                <?php } ?>
-                                <tr>
                             <input type="hidden" class="form-control" name="check<?php echo $processstep['id']; ?>[propertyname]" id="propertyname<?php echo $processstep['id']; ?>" value="<?php echo $processstep['projectprocess']; ?>" >
-                            <td><?php echo $processstep['projectprocess']; ?></td>
-                            <td>
+                            <td data-title="General"><?php echo $processstep['projectprocess']; ?></td>
+                            <td data-title="Check">
                                 <?php
                                 $checkedyes = "";
                                 $checkedno = "";
@@ -91,12 +80,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <label><input type="radio" <?php echo $checkedno; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="N" <?php echo set_radio('check' . $processstep['id'] . '[checkbox]', 'N'); ?>>No</label>
                                 <label><input type="radio" <?php echo $checkedna; ?> name="check<?php echo $processstep['id']; ?>[checkbox]" value="N/A" <?php echo set_radio('check' . $processstep['id'] . '[checkbox]', 'N/A'); ?>>N/A</label>
                             </td><span style='color: red'><?php echo form_error('check' . $processstep['id'] . '[checkbox]'); ?></span>
-    <!--                            <td><input type="textarea" class="form-control" name="check<?php echo $processstep['id']; ?>[comments]" id="comments<?php //echo $processstep['id'];                                                                               ?>" value="<?php
-                            if (!empty($airsystem)) {
-                                $airsystem[$processstep['id'] - 1]['comments'];
-                            }
-                            ?>" ></td>-->
-                            <td><textarea name="check<?php echo $processstep['id']; ?>[comments]" class="form-control custom-control" rows="1" style="resize:none" <?php echo set_value($processstep['id'] . '[comments]'); ?>><?php
+
+                            <td data-title="Comments"><textarea name="check<?php echo $processstep['id']; ?>[comments]" class="form-control custom-control" rows="1" style="resize:none" <?php echo set_value($processstep['id'] . '[comments]'); ?>><?php
                                     if (!empty($airsystem)) {
                                         echo $airsystem[$processstep['id'] - 1]['comments'];
                                     }
@@ -108,38 +93,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             $process1 = $processstep['processtitle'];
                         }
                         ?>
+                        <tr>
+                            <!--<td data-title="General"></td>-->
+                            <td data-title="Comments" colspan="3"><span class="comm-hide">Comments</span><textarea class="comment-area" id="projproc_comments" name="projproc_comments" class="form-control custom-control" rows="5" col="15"><?php
+                                    if (!empty($projectcomments)) {
+                                        echo $projectcomments['comments'];
+                                    } else {
+                                        echo set_value('projproc_comments');
+                                    }
+                                    ?></textarea>
+                            </td>
 
-
+                        </tr>
                         </tbody>
                     </table>
-
-                    <div class="animated zoomIn">
-                        <div class="box-body no-padding">
-                            <table class="table table-condensed">
-                                <tbody>
-                                    <tr>
-                                        <td>Comments</td>
-                                        <td ><textarea style="resize:none;width:603px; height:117px;" id="projproc_comments" name="projproc_comments" class="form-control custom-control" rows="5" col="15"  ><?php
-                                                if (!empty($projectcomments)) {
-                                                    echo $projectcomments['comments'];
-                                                } else {
-                                                    echo set_value('projproc_comments');
-                                                }
-                                                ?></textarea></td>
-
-                                    </tr>
-                                </tbody></table>
-                        </div>
-                    </div>
 
                     <div class="box-footer">
                         <?php if (empty($airsystem)) { ?>
                             <button class="btn btn-primary" type="submit">Submit</button>
                         <?php } ?>
                         &nbsp;<a href="<?php echo base_url(); ?>projectmaster"><button class="btn btn-primary" type="button">Back  </button></a>
-                    </div>
-                    <div class="box-footer">
-
                     </div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
