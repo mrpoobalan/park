@@ -46,8 +46,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php //if (isset($affect_row)) { ?>
                 <div style="color:red;text-align:center;"><?php echo $this->session->flashdata('affect_row'); ?></div>
                 <?php //} ?>
-                <table  id="example2" class="table table-bordered table-striped">
-                    <thead class="cf">
+
+                <table  id="example2" class="table table-bordered table-striped h_scroll" >
+                    <thead >
 
                         <tr class="datatable_header">
                             <th class="sorting_action">Action</th>
@@ -62,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th>Comments</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         <?php
                         $i = 1;
                         foreach ($direct_volume as $result) {
@@ -84,6 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         }
                         ?>
                     </tbody>
+
                 </table>
 
                 <div class="box-footer">

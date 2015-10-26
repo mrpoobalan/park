@@ -28,7 +28,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             format: 'dd-mm-yyyy',
         });
         $("#example1").DataTable({
-            "scrollX": true,
+            "aaSorting": [],
+            'aoColumnDefs': [{
+                    'bSortable': false,
+                    'aTargets': 0,
+                }]
+
+        });
+
+        $("#example2").DataTable({
             "aaSorting": [],
             'aoColumnDefs': [{
                     'bSortable': false,
@@ -36,18 +44,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }]
         });
 
-        $("#example2").DataTable({
-            "scrollX": true,
-            "aaSorting": [],
-            'aoColumnDefs': [{
-                    'bSortable': false,
-                    'aTargets': 0,
-                }]
-        });
     });
 
 </script>
 <script>
+
 //    $(document).ready(function() {
 //        var heights = $(".element").map(function() {
 //            return $(this).height();
@@ -61,26 +62,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <script>
 
-    function heightElement() {
-        var set = 0;
-        var check = setInterval(function() {
-            e = $(".element");
-            e.css({height: "auto"});
-            var heights = e.map(function() {
-                return $(this).height();
-            }).get(),
-                    maxHeight = Math.max.apply(null, heights);
-            $(".element").height(maxHeight);
-            set += 10;
-            if (set >= 500) {
-                clearInterval(check);
-            }
-        }, 10);
+    console.log(window.location.hostname);
+    function equalHeights() {
+        $(".element").removeAttr('style');
+        var heights = $(".element").map(function() {
+            return $(this).height();
+        }).get(),
+                maxHeight = Math.max.apply(null, heights);
+        $(".element").height(maxHeight);
     }
+
     $(document).ready(function() {
 
-        $(window).resize(heightElement);
-        $(window).trigger('resize');
+        $("a[data-href]").click(function(e) {
+            window.location = window.location.protocol + '//' + window.location.host + window.location.pathname + '#' + $(this).attr("data-href");
+            location.reload();
+        });
+
+        var x = location.hash;
+        var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+        };
+        setTimeout(function() {
+            if (isMobile.any()) {
+                var e = $("[data-id='" + x.replace('#', '') + "']");
+                if (e.length) {
+                    $('html,body').animate({
+                        scrollTop: e.offset().top - 20
+                    }, 800);
+                }
+            }
+        }, 500);
+
+
+        equalHeights();
+        $(window).resize(function() {
+            equalHeights();
+            setTimeout(function() {
+                equalHeights();
+            }, 500);
+        });
 
         //* Pagination *//
         var paginate = $('.icntabs'),
@@ -88,7 +126,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 paginationBackward = $('.page-backward'),
                 totalPages = $('.icntabs').length,
                 pageNumber = 0;
-
 
         $('.totalPagesPagination').text(totalPages);
 

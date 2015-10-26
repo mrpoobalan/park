@@ -42,7 +42,13 @@ body{ background: #f2f2f2;  }
     white-space: nowrap;
     font-size: 12px !important;
 }
+/*.h_scroll {
+    overflow-x: auto;
+}*/
 
+#example2_wrapper .col-sm-12 {
+    overflow-x: auto;
+}
 table.dataTable tr.odd { background-color: #fff;  }
 table.dataTable tr.even{ background-color: #F2F2F2;}
 .loadmre span { font-size: 15px; color: #333; }

@@ -9,9 +9,9 @@
             <file>file:/var/www/html/parklane/application/views/backflush_create_view.php</file>
             <file>file:/var/www/html/parklane/application/views/common/header.php</file>
             <file>file:/var/www/html/parklane/application/views/common/left_content.php</file>
-            <file>file:/var/www/html/parklane/assets/backend/css/icon-theme.css</file>
             <file>file:/var/www/html/parklane/application/views/common/footer.php</file>
-            <file>file:/var/www/html/parklane/assets/backend/css/admin.css</file>
+            <file>file:/var/www/html/parklane/assets/backend/css/icon-theme.css</file>
+            <file>file:/var/www/html/parklane/assets/backend/css/icon-theme-BK.css</file>
             <file>file:/var/www/html/parklane/application/views/backflush_view.php</file>
         </group>
     </open-files>

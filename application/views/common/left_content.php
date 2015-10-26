@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="row">
         <div class="col-md-3">
             <div class="icontab">
-                <h4 class="animated fadeInDownBig">Lorem ipsum text</h4>
+                <h4 class="animated fadeInDownBig"><a href="<?php echo base_url(); ?>projectmaster" style="color:white;" role="button">Project Process</a></h4>
                 <div class="icntabs">
                     <div class="tabbox animated zoomIn element">
                         <a href="<?php echo base_url(); ?>projectmaster/airSystem"  id="airSystem">
@@ -63,25 +63,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="tabbox animated zoomIn element">
                         <a href="#" class="active">
                             <p><i class="fa fa-soundcloud selected"></i></p>
-                            <p>Air System -commissioning Checks 3</p>
+                            <p>Grille Balance</p>
                         </a>
                     </div>
                     <div class="tabbox animated zoomIn element">
                         <a href="#">
                             <p><i class="fa fa-backward"></i></p>
-                            <p>Back  Report</p>
+                            <p>Hws Blending Valves</p>
                         </a>
                     </div>
                     <div class="tabbox animated zoomIn element">
                         <a href="#">
                             <p><i class="fa fa-volume-up"></i></p>
-                            <p>Direct Voluasdsadme Grille Record</p>
+                            <p>Intial Grille Volume Test </p>
                         </a>
                     </div>
                     <div class="tabbox animated zoomIn element">
                         <a href="#">
                             <p><i class="fa fa-chain-broken"></i></p>
-                            <p>Duct </p>
+                            <p>Installation Check Air </p>
                         </a>
                     </div>
                 </div>
@@ -90,25 +90,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="tabbox animated zoomIn element">
                         <a href="#" class="active">
                             <p><i class="fa fa-soundcloud selected"></i></p>
-                            <p>Air Symissioning Checks 4</p>
+                            <p>Installation Check Water</p>
                         </a>
                     </div>
                     <div class="tabbox animated zoomIn element">
                         <a href="#">
                             <p><i class="fa fa-backward"></i></p>
-                            <p>Back  Report</p>
+                            <p>Iris Damper</p>
                         </a>
                     </div>
                     <div class="tabbox animated zoomIn element">
                         <a href="#">
                             <p><i class="fa fa-volume-up"></i></p>
-                            <p>Direct  Grille Record</p>
+                            <p>Mains Chlorination</p>
                         </a>
                     </div>
                     <div class="tabbox animated zoomIn element">
                         <a href="#">
                             <p><i class="fa fa-chain-broken"></i></p>
-                            <p>Duct Lesadsadakage</p>
+                            <p>Mixer Valve Set</p>
                         </a>
                     </div>
                 </div>

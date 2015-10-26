@@ -44,19 +44,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="box-body no-padding">
                     <table class="table table-condensed">
 
-                        <thead class="cf">
-                            <tr>
-                                <th>General</th>
-                                <th>Check</th>
-                                <th>Comments</th>
-                            </tr>
-                        </thead>
+                        <?php
+                        $process1 = "";
+                        $i = 0;
 
-                        <tbody>
-                            <?php
-                            $process1 = "";
-                            foreach ($process as $processstep) {
-                                ?>
+                        foreach ($process as $processstep) {
+                            //echo $processstep['processtitle'] . '<br>';
+                            ?>
+                            <?php if (($i == 0 && $processstep['processtitle'] == 'General') || ($i == 6 && $processstep['processtitle'] == 'Fan Mechanical Checks') || ($i == 12 && $processstep['processtitle'] == 'Electrical Checks') || ($i == 14 && $processstep['processtitle'] == 'Initial Start')) { ?>
+
+                                <thead >
+                                    <tr>
+                                        <th><?php echo $processstep['processtitle']; ?></th>
+                                        <?php if ($i == 0) { ?>
+                                            <th>Check</th>
+                                            <th>Comments</th>
+                                        <?php } ?>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php } ?>
+
+
                                 <tr >
 
                             <input type="hidden" class="form-control" name="check<?php echo $processstep['id']; ?>[propertyname]" id="propertyname<?php echo $processstep['id']; ?>" value="<?php echo $processstep['projectprocess']; ?>" >
@@ -91,6 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <?php
                             $process1 = $processstep['processtitle'];
+                            $i++;
                         }
                         ?>
                         <tr>

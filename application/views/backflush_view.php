@@ -46,8 +46,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php //if (isset($affect_row)) { ?>
                 <div style="color:red;text-align:center"><?php echo $this->session->flashdata('affect_row'); ?></div>
                 <?php // } ?>
-                <table  id="example1" class="table table-bordered table-striped">
-                    <thead class="cf">
+                <table  id="example1" class="table table-bordered table-striped" >
+                    <thead>
 
                         <tr class="datatable_header" >
                             <th class="sorting_action">Action</th>
